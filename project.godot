@@ -11,14 +11,22 @@ config_version=5
 [application]
 
 config/name="scaling_shapes"
-run/main_scene="res://levels/level_0.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SoundEffects="*res://scenes/autoload/sound_effects.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[dotnet]
+
+project/assembly_name="scaling_shapes"
 
 [input]
 

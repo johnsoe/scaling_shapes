@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://chau7orh4vnwt"]
 
-[ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://player/player_node.tscn" id="1_amcxc"]
-[ext_resource type="Texture2D" uid="uid://cp77f44kl8apq" path="res://fake_assets/tilemap_packed.png" id="2_dij0i"]
+[ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://player/player_node.tscn" id="1_fa4gj"]
+[ext_resource type="Texture2D" uid="uid://cp77f44kl8apq" path="res://fake_assets/tilemap_packed.png" id="2_qq2xc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u02lf"]
-texture = ExtResource("2_dij0i")
+texture = ExtResource("2_qq2xc")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -429,7 +429,7 @@ sources/0 = SubResource("TileSetAtlasSource_u02lf")
 
 [node name="Level_0" type="Node2D"]
 
-[node name="PlayerNode" parent="." instance=ExtResource("1_amcxc")]
+[node name="PlayerNode" parent="." instance=ExtResource("1_fa4gj")]
 position = Vector2(328, 681)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerNode"]
