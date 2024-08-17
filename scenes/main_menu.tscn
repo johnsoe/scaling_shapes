@@ -1,18 +1,640 @@
-[gd_scene load_steps=14 format=3 uid="uid://8l6qx2ci6f8r"]
+[gd_scene load_steps=36 format=3 uid="uid://8l6qx2ci6f8r"]
 
 [ext_resource type="Texture2D" uid="uid://b2wwcb0vsoepq" path="res://assets/textures/team_scones_logo.png" id="1_2nhpa"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_evalm"]
 [ext_resource type="Texture2D" uid="uid://cqqe825amrkjc" path="res://assets/textures/backgrounds/main_menu.png" id="2_m4sf1"]
 [ext_resource type="Texture2D" uid="uid://ddkvr2gdgi60x" path="res://assets/textures/main_menu_title.png" id="3_hdjo1"]
-[ext_resource type="Texture2D" uid="uid://bcjtxfob21q44" path="res://assets/textures/buttons/play_normal.png" id="5_wsfos"]
-[ext_resource type="Texture2D" uid="uid://4apjb52rgieb" path="res://assets/textures/buttons/play_pressed.png" id="6_86fwt"]
-[ext_resource type="Texture2D" uid="uid://cipupvaqwqsdw" path="res://assets/textures/buttons/play_hover.png" id="7_6tcln"]
+[ext_resource type="AudioStream" uid="uid://b8snjgd6ocj8o" path="res://assets/music/title.ogg" id="5_00vpk"]
 [ext_resource type="Texture2D" uid="uid://cfkt38l2yqvlt" path="res://assets/textures/buttons/exit_normal.png" id="8_06xw0"]
 [ext_resource type="Texture2D" uid="uid://mp055u8t4c8t" path="res://assets/textures/buttons/exit_pressed.png" id="9_0wnso"]
 [ext_resource type="Texture2D" uid="uid://b2co6l3gx35nc" path="res://assets/textures/buttons/exit_hover.png" id="10_4i13v"]
 [ext_resource type="Texture2D" uid="uid://b1wh8qwl4fx7g" path="res://assets/textures/buttons/fullscreen_normal.png" id="11_oj2th"]
+[ext_resource type="Texture2D" uid="uid://dt7a8g2bhpfy0" path="res://assets/textures/buttons/level1_normal.png" id="11_plkic"]
 [ext_resource type="Texture2D" uid="uid://dq0ouofcqcy6s" path="res://assets/textures/buttons/fullscreen_pressed.png" id="12_2aljh"]
+[ext_resource type="Texture2D" uid="uid://d13wamcyp36m3" path="res://assets/textures/buttons/level1_pressed.png" id="12_f03wt"]
+[ext_resource type="Texture2D" uid="uid://ty0wrovph4u1" path="res://assets/textures/buttons/level1_hover.png" id="13_t0fna"]
 [ext_resource type="Texture2D" uid="uid://c34l10m01m6ai" path="res://assets/textures/buttons/fullscreen_hover.png" id="13_xkk7p"]
+[ext_resource type="Texture2D" uid="uid://dl0yhrdnivt7c" path="res://assets/textures/buttons/level2_normal.png" id="14_b8ijr"]
+[ext_resource type="Texture2D" uid="uid://4qwh0xkhj4ch" path="res://assets/textures/buttons/level2_pressed.png" id="15_3f0dd"]
+[ext_resource type="Texture2D" uid="uid://vpo6m1lb14sd" path="res://assets/textures/buttons/level2_hover.png" id="16_al2hv"]
+[ext_resource type="Texture2D" uid="uid://dbsnj6rftg5ll" path="res://assets/textures/buttons/level3_normal.png" id="17_wvqw8"]
+[ext_resource type="Texture2D" uid="uid://dk4ixwnp3u18h" path="res://assets/textures/buttons/level3_pressed.png" id="18_grtag"]
+[ext_resource type="Texture2D" uid="uid://cg1pxlsaqc5m8" path="res://assets/textures/buttons/level3_hover.png" id="19_73p72"]
+[ext_resource type="Texture2D" uid="uid://bg8clxqfohkqc" path="res://assets/textures/buttons/level4_normal.png" id="20_gchvl"]
+[ext_resource type="Texture2D" uid="uid://qumkgj0myy4v" path="res://assets/textures/buttons/level4_pressed.png" id="21_mdd55"]
+[ext_resource type="Texture2D" uid="uid://bcbdhwatqueim" path="res://assets/textures/buttons/level4_hover.png" id="22_ahb3v"]
+[ext_resource type="Texture2D" uid="uid://bg3pflagfomwo" path="res://assets/textures/buttons/level5_normal.png" id="23_mue1q"]
+[ext_resource type="Texture2D" uid="uid://csfgjc8e45u4d" path="res://assets/textures/buttons/level5_pressed.png" id="24_6rfad"]
+[ext_resource type="Texture2D" uid="uid://f7v1eokoqfx1" path="res://assets/textures/buttons/level5_hover.png" id="25_atmfi"]
+[ext_resource type="AudioStream" uid="uid://down1guxw5r2e" path="res://assets/sound_effects/sfx_click_button.ogg" id="26_xlwpf"]
+[ext_resource type="AudioStream" uid="uid://clu2qlsv8y608" path="res://assets/sound_effects/sfx_scale_up.ogg" id="27_53ijl"]
+[ext_resource type="AudioStream" uid="uid://5q76bhyxuj6m" path="res://assets/sound_effects/sfx_scale_down.ogg" id="28_xdmst"]
+
+[sub_resource type="Animation" id="Animation_v714q"]
+resource_name = "Logo Intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 1200), Vector2(960, 600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameLogo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.0349066, 0.0349066, -0.0349066, 0.0349066, -0.0349066, 0.0349066, -0.0349066, 0.0349066, -0.0349066, 0.0349066, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameLogo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/SFX_LogoScaleUp:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Animation/SFX_LogoScaleDown:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_virtm"]
+resource_name = "Logo Move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLogo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0349066, 0.0, -0.0349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameLogo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_t53af"]
+resource_name = "Menu Intro"
+length = 4.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/FullscreenButton:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/ExitButton:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TeamLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons/FullscreenButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons/ExitButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Buttons/Level1Button:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons/Level1Button:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Buttons/Level2Button:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Buttons/Level2Button:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2.6, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Buttons/Level3Button:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Buttons/Level3Button:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Buttons/Level4Button:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Buttons/Level4Button:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 3.4, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Buttons/Level5Button:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Buttons/Level5Button:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 3.8, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Animation/SFX_ButtonAppear:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(2.2, 2.6, 3, 3.4, 3.8, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_1dfnj"]
+resource_name = "Menu Move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TeamLogo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0349066, 0.0, -0.0349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TeamLogo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.425781, 0.425781), Vector2(0.326, 0.326)]
+}
+
+[sub_resource type="Animation" id="Animation_yl6mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLogo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 2000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameLogo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameLogo:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Buttons/FullscreenButton:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Buttons/ExitButton:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TeamLogo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons/FullscreenButton:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Buttons/ExitButton:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Buttons/Level1Button:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Buttons/Level1Button:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Buttons/Level2Button:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Buttons/Level2Button:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Buttons/Level3Button:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Buttons/Level3Button:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Buttons/Level4Button:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Buttons/Level4Button:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Buttons/Level5Button:disabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Buttons/Level5Button:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Animation/SFX_ButtonAppear:playing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TeamLogo:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("TeamLogo:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.425781, 0.425781)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Animation/SFX_LogoScaleUp:playing")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Animation/SFX_LogoScaleDown:playing")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86oqh"]
+_data = {
+"Logo Intro": SubResource("Animation_v714q"),
+"Logo Move": SubResource("Animation_virtm"),
+"Menu Intro": SubResource("Animation_t53af"),
+"Menu Move": SubResource("Animation_1dfnj"),
+"RESET": SubResource("Animation_yl6mt")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -28,57 +650,156 @@ position = Vector2(960, 540)
 texture = ExtResource("2_m4sf1")
 
 [node name="GameLogo" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
+z_index = 2
+position = Vector2(960, 2000)
+rotation = -0.0349066
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_hdjo1")
 
 [node name="TeamLogo" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1791, 951)
 scale = Vector2(0.425781, 0.425781)
 texture = ExtResource("1_2nhpa")
 
-[node name="MainMenuButtons" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 110.0
-offset_right = 200.0
-offset_bottom = 434.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_00vpk")
+autoplay = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuButtons"]
-layout_mode = 2
+[node name="Animation" type="Node" parent="."]
 
-[node name="PlayButton" type="TextureButton" parent="MainMenuButtons/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("5_wsfos")
-texture_pressed = ExtResource("6_86fwt")
-texture_hover = ExtResource("7_6tcln")
+[node name="MenuAnimation" type="AnimationPlayer" parent="Animation"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_86oqh")
+}
+autoplay = "Menu Intro"
 
-[node name="ExitButton" type="TextureButton" parent="MainMenuButtons/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_06xw0")
-texture_pressed = ExtResource("9_0wnso")
-texture_hover = ExtResource("10_4i13v")
+[node name="LogoAnimation" type="AnimationPlayer" parent="Animation"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_86oqh")
+}
+autoplay = "Logo Intro"
 
-[node name="FullscreenButton" type="TextureButton" parent="."]
-layout_mode = 1
+[node name="SFX_ButtonAppear" type="AudioStreamPlayer2D" parent="Animation"]
+stream = ExtResource("26_xlwpf")
+
+[node name="SFX_LogoScaleUp" type="AudioStreamPlayer2D" parent="Animation"]
+stream = ExtResource("27_53ijl")
+
+[node name="SFX_LogoScaleDown" type="AudioStreamPlayer2D" parent="Animation"]
+stream = ExtResource("28_xdmst")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="FullscreenButton" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -120.0
+offset_left = -240.0
 offset_top = 20.0
-offset_right = -20.0
+offset_right = -140.0
 offset_bottom = 120.0
 grow_horizontal = 0
+rotation = -0.0349066
+scale = Vector2(1.05, 1.05)
+disabled = true
 texture_normal = ExtResource("11_oj2th")
 texture_pressed = ExtResource("12_2aljh")
 texture_hover = ExtResource("13_xkk7p")
 
-[connection signal="pressed" from="MainMenuButtons/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenuButtons/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[node name="ExitButton" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 23.0
+offset_right = -20.0
+offset_bottom = 123.0
+grow_horizontal = 0
+rotation = 0.0349066
+scale = Vector2(1.05, 1.05)
+disabled = true
+texture_normal = ExtResource("8_06xw0")
+texture_pressed = ExtResource("9_0wnso")
+texture_hover = ExtResource("10_4i13v")
+
+[node name="Level1Button" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 56.0
+offset_top = 662.0
+offset_right = 256.0
+offset_bottom = 862.0
+rotation = -0.13439
+disabled = true
+texture_normal = ExtResource("11_plkic")
+texture_pressed = ExtResource("12_f03wt")
+texture_hover = ExtResource("13_t0fna")
+
+[node name="Level2Button" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 416.0
+offset_top = 788.0
+offset_right = 616.0
+offset_bottom = 988.0
+rotation = 0.0925025
+disabled = true
+texture_normal = ExtResource("14_b8ijr")
+texture_pressed = ExtResource("15_3f0dd")
+texture_hover = ExtResource("16_al2hv")
+
+[node name="Level3Button" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 737.0
+offset_top = 622.0
+offset_right = 937.0
+offset_bottom = 822.0
+rotation = -0.00349066
+disabled = true
+texture_normal = ExtResource("17_wvqw8")
+texture_pressed = ExtResource("18_grtag")
+texture_hover = ExtResource("19_73p72")
+
+[node name="Level4Button" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1064.0
+offset_top = 797.0
+offset_right = 1264.0
+offset_bottom = 997.0
+rotation = -0.0698132
+disabled = true
+texture_normal = ExtResource("20_gchvl")
+texture_pressed = ExtResource("21_mdd55")
+texture_hover = ExtResource("22_ahb3v")
+
+[node name="Level5Button" type="TextureButton" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1430.0
+offset_top = 671.0
+offset_right = 1630.0
+offset_bottom = 871.0
+rotation = 0.122173
+disabled = true
+texture_normal = ExtResource("23_mue1q")
+texture_pressed = ExtResource("24_6rfad")
+texture_hover = ExtResource("25_atmfi")
+
+[connection signal="animation_finished" from="Animation/MenuAnimation" to="." method="_on_menu_animation_animation_finished"]
+[connection signal="animation_finished" from="Animation/LogoAnimation" to="." method="_on_logo_animation_animation_finished"]
+[connection signal="mouse_entered" from="Buttons/FullscreenButton" to="." method="_on_fullscreen_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Level1Button" to="." method="_on_level_1_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Level2Button" to="." method="_on_level_2_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Level3Button" to="." method="_on_level_3_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Level3Button" to="." method="_on_level_3_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Level4Button" to="." method="_on_level_4_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Level4Button" to="." method="_on_level_4_button_pressed"]
+[connection signal="mouse_entered" from="Buttons/Level5Button" to="." method="_on_level_5_button_mouse_entered"]
+[connection signal="pressed" from="Buttons/Level5Button" to="." method="_on_level_5_button_pressed"]
