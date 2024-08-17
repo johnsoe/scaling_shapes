@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://8l6qx2ci6f8r"]
+[gd_scene load_steps=14 format=3 uid="uid://8l6qx2ci6f8r"]
 
 [ext_resource type="Texture2D" uid="uid://b2wwcb0vsoepq" path="res://assets/textures/team_scones_logo.png" id="1_2nhpa"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_evalm"]
+[ext_resource type="Texture2D" uid="uid://cqqe825amrkjc" path="res://assets/textures/backgrounds/main_menu.png" id="2_m4sf1"]
+[ext_resource type="Texture2D" uid="uid://ddkvr2gdgi60x" path="res://assets/textures/main_menu_title.png" id="3_hdjo1"]
+[ext_resource type="Texture2D" uid="uid://bcjtxfob21q44" path="res://assets/textures/buttons/play_normal.png" id="5_wsfos"]
+[ext_resource type="Texture2D" uid="uid://4apjb52rgieb" path="res://assets/textures/buttons/play_pressed.png" id="6_86fwt"]
+[ext_resource type="Texture2D" uid="uid://cipupvaqwqsdw" path="res://assets/textures/buttons/play_hover.png" id="7_6tcln"]
+[ext_resource type="Texture2D" uid="uid://cfkt38l2yqvlt" path="res://assets/textures/buttons/exit_normal.png" id="8_06xw0"]
+[ext_resource type="Texture2D" uid="uid://mp055u8t4c8t" path="res://assets/textures/buttons/exit_pressed.png" id="9_0wnso"]
+[ext_resource type="Texture2D" uid="uid://b2co6l3gx35nc" path="res://assets/textures/buttons/exit_hover.png" id="10_4i13v"]
+[ext_resource type="Texture2D" uid="uid://b1wh8qwl4fx7g" path="res://assets/textures/buttons/fullscreen_normal.png" id="11_oj2th"]
+[ext_resource type="Texture2D" uid="uid://dq0ouofcqcy6s" path="res://assets/textures/buttons/fullscreen_pressed.png" id="12_2aljh"]
+[ext_resource type="Texture2D" uid="uid://c34l10m01m6ai" path="res://assets/textures/buttons/fullscreen_hover.png" id="13_xkk7p"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,53 +23,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_evalm")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -634.0
-offset_top = -260.0
-offset_right = 634.0
-offset_bottom = -123.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "Scaling Game (feat. Ghost)"
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_m4sf1")
+
+[node name="GameLogo" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_hdjo1")
 
 [node name="TeamLogo" type="Sprite2D" parent="."]
 position = Vector2(1791, 951)
 scale = Vector2(0.425781, 0.425781)
 texture = ExtResource("1_2nhpa")
 
-[node name="Buttons" type="MarginContainer" parent="."]
+[node name="MainMenuButtons" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.5
-offset_top = -33.0
-offset_right = 43.5
-offset_bottom = 33.0
+offset_left = -200.0
+offset_top = 110.0
+offset_right = 200.0
+offset_bottom = 434.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.5, 2.5)
-pivot_offset = Vector2(43, -70)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuButtons"]
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="Buttons/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="MainMenuButtons/VBoxContainer"]
 layout_mode = 2
-text = "Play"
+texture_normal = ExtResource("5_wsfos")
+texture_pressed = ExtResource("6_86fwt")
+texture_hover = ExtResource("7_6tcln")
 
-[node name="ExitButton" type="Button" parent="Buttons/VBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="MainMenuButtons/VBoxContainer"]
 layout_mode = 2
-text = "Exit Game"
+texture_normal = ExtResource("8_06xw0")
+texture_pressed = ExtResource("9_0wnso")
+texture_hover = ExtResource("10_4i13v")
 
-[connection signal="pressed" from="Buttons/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Buttons/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="FullscreenButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 120.0
+grow_horizontal = 0
+texture_normal = ExtResource("11_oj2th")
+texture_pressed = ExtResource("12_2aljh")
+texture_hover = ExtResource("13_xkk7p")
+
+[connection signal="pressed" from="MainMenuButtons/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuButtons/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
