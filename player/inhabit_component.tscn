@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cux5jo5ltl3p7"]
+
+[ext_resource type="Script" path="res://scaling/components/inhabit_component.gd" id="1_clt4c"]
+
+[node name="InhabitArea2D" type="Area2D"]
+script = ExtResource("1_clt4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

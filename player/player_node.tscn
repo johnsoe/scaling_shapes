@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://16qibkk2s8nj"]
+[gd_scene load_steps=6 format=3 uid="uid://16qibkk2s8nj"]
 
-[ext_resource type="Script" path="res://player/player_movement.gd" id="1_6w0o6"]
 [ext_resource type="Texture2D" uid="uid://whqikvg0ow88" path="res://fake_assets/tile_0121.png" id="1_tbfls"]
+[ext_resource type="Script" path="res://player/player_controller.gd" id="1_xum83"]
+[ext_resource type="Script" path="res://scaling/ScalingManager.gd" id="3_npv27"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gapsn"]
 radius = 6.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5d42r"]
+radius = 7.25431
+
 [node name="PlayerNode" type="CharacterBody2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_6w0o6")
+script = ExtResource("1_xum83")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_tbfls")
@@ -16,3 +20,17 @@ texture = ExtResource("1_tbfls")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.75)
 shape = SubResource("CircleShape2D_gapsn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.08165e-12, 1.75)
+shape = SubResource("CircleShape2D_5d42r")
+
+[node name="ScalingManager" type="Node" parent="."]
+script = ExtResource("3_npv27")
+
+[connection signal="inhabit_node" from="." to="ScalingManager" method="_on_player_node_inhabit_node"]
+[connection signal="uninhabit_node" from="." to="ScalingManager" method="_on_player_node_uninhabit_node"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
