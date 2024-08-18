@@ -1,10 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://8l6qx2ci6f8r"]
+[gd_scene load_steps=35 format=3 uid="uid://8l6qx2ci6f8r"]
 
 [ext_resource type="Texture2D" uid="uid://b2wwcb0vsoepq" path="res://assets/textures/team_scones_logo.png" id="1_2nhpa"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_evalm"]
 [ext_resource type="Texture2D" uid="uid://cqqe825amrkjc" path="res://assets/textures/backgrounds/main_menu.png" id="2_m4sf1"]
 [ext_resource type="Texture2D" uid="uid://ddkvr2gdgi60x" path="res://assets/textures/main_menu_title.png" id="3_hdjo1"]
-[ext_resource type="AudioStream" uid="uid://b8snjgd6ocj8o" path="res://assets/music/title.ogg" id="5_00vpk"]
 [ext_resource type="Texture2D" uid="uid://cfkt38l2yqvlt" path="res://assets/textures/buttons/exit_normal.png" id="8_06xw0"]
 [ext_resource type="Texture2D" uid="uid://mp055u8t4c8t" path="res://assets/textures/buttons/exit_pressed.png" id="9_0wnso"]
 [ext_resource type="Texture2D" uid="uid://b2co6l3gx35nc" path="res://assets/textures/buttons/exit_hover.png" id="10_4i13v"]
@@ -72,7 +71,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Animation/SFX_LogoScaleUp:playing")
+tracks/3/path = NodePath("Animation/SFX_ScaleUp:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -84,7 +83,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Animation/SFX_LogoScaleDown:playing")
+tracks/4/path = NodePath("Animation/SFX_ScaleDown:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -309,7 +308,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Animation/SFX_ButtonAppear:playing")
+tracks/15/path = NodePath("Animation/SFX_Button:playing")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -569,7 +568,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Animation/SFX_ButtonAppear:playing")
+tracks/18/path = NodePath("Animation/SFX_Button:playing")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -605,7 +604,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Animation/SFX_LogoScaleUp:playing")
+tracks/21/path = NodePath("Animation/SFX_ScaleUp:playing")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -617,7 +616,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Animation/SFX_LogoScaleDown:playing")
+tracks/22/path = NodePath("Animation/SFX_ScaleDown:playing")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -662,10 +661,6 @@ position = Vector2(1791, 951)
 scale = Vector2(0.425781, 0.425781)
 texture = ExtResource("1_2nhpa")
 
-[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_00vpk")
-autoplay = true
-
 [node name="Animation" type="Node" parent="."]
 
 [node name="MenuAnimation" type="AnimationPlayer" parent="Animation"]
@@ -673,22 +668,20 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_86oqh")
 }
-autoplay = "Menu Intro"
 
 [node name="LogoAnimation" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_86oqh")
 }
-autoplay = "Logo Intro"
 
-[node name="SFX_ButtonAppear" type="AudioStreamPlayer2D" parent="Animation"]
+[node name="SFX_Button" type="AudioStreamPlayer" parent="Animation"]
 stream = ExtResource("26_xlwpf")
 
-[node name="SFX_LogoScaleUp" type="AudioStreamPlayer2D" parent="Animation"]
+[node name="SFX_ScaleUp" type="AudioStreamPlayer" parent="Animation"]
 stream = ExtResource("27_53ijl")
 
-[node name="SFX_LogoScaleDown" type="AudioStreamPlayer2D" parent="Animation"]
+[node name="SFX_ScaleDown" type="AudioStreamPlayer" parent="Animation"]
 stream = ExtResource("28_xdmst")
 
 [node name="Buttons" type="Node" parent="."]

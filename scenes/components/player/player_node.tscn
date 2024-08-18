@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://16qibkk2s8nj"]
+
+[ext_resource type="Script" path="res://scenes/components/player/player_controller.gd" id="1_xum83"]
+[ext_resource type="Texture2D" uid="uid://cdmmv837tcgah" path="res://assets/sprites/playerSheet.png" id="2_e5m5k"]
+[ext_resource type="Script" path="res://scenes/components/scaling/ScalingManager.gd" id="3_npv27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exvcg"]
+atlas = ExtResource("2_e5m5k")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjvdk"]
+atlas = ExtResource("2_e5m5k")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myrbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exvcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjvdk")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iayn0"]
+radius = 40.43
+height = 188.17
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5d42r"]
+radius = 94.34
+
+[node name="PlayerNode" type="CharacterBody2D"]
+collision_layer = 128
+script = ExtResource("1_xum83")
+
+[node name="ScalingManager" type="Node" parent="."]
+script = ExtResource("3_npv27")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_bottom = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_myrbi")
+animation = &"run"
+autoplay = "run"
+frame = 1
+frame_progress = 0.518968
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_iayn0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5d42r")
+
+[connection signal="inhabit_node" from="." to="ScalingManager" method="_on_player_node_inhabit_node"]
+[connection signal="uninhabit_node" from="." to="ScalingManager" method="_on_player_node_uninhabit_node"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
