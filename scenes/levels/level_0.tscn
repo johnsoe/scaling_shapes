@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://chau7orh4vnwt"]
+[gd_scene load_steps=11 format=3 uid="uid://chau7orh4vnwt"]
 
+[ext_resource type="Script" path="res://scenes/levels/level_0.gd" id="1_d56su"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="1_fa4gj"]
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_qvnr0"]
 [ext_resource type="Texture2D" uid="uid://cp77f44kl8apq" path="res://fake_assets/tilemap_packed.png" id="2_qq2xc"]
@@ -435,6 +436,7 @@ sources/0 = SubResource("TileSetAtlasSource_u02lf")
 radius = 7.0
 
 [node name="Level_0" type="Node2D"]
+script = ExtResource("1_d56su")
 
 [node name="HudOverlay" parent="." instance=ExtResource("1_qvnr0")]
 
