@@ -60,17 +60,29 @@ func get_remaining_transition_time():
 	return animation_player.current_animation_length - animation_player.current_animation_position
 
 
-func transition_to_level(box_size, box_postition, box_rotation, target_level):
+func transition_to_level(box_size, box_position, box_rotation, target_level):
 	
 	# Set transition box transform
 	black_box.size = box_size
-	black_box.set_position(box_postition)
+	black_box.set_position(box_position)
 	black_box.rotation_degrees = box_rotation
 	
 	# Set variables for transition
 	next_song = music_map[target_level]
 	next_scene = scene_map[target_level]
 	flavor_text.text = flavor_text_map[target_level]
+	
+	# Fade out current scene
+	music_controller.fade_out()
+	animation_player.play("Fade Out Scene")
+
+
+func reload_current_level(box_size, box_position, box_rotation):
+	
+	# Set transition box transform
+	black_box.size = box_size
+	black_box.set_position(box_position)
+	black_box.rotation_degrees = box_rotation
 	
 	# Fade out current scene
 	music_controller.fade_out()

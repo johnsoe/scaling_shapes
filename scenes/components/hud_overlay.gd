@@ -6,6 +6,7 @@ extends CanvasLayer
 
 @onready var hud = $Constraints/Hud
 @onready var pause_menu = $Constraints/PauseMenu
+@onready var restart_level_button = $Constraints/PauseMenu/RestartLevelButton
 @onready var main_menu_button = $Constraints/PauseMenu/MainMenuButton
 
 ####################################################################################################
@@ -43,6 +44,18 @@ func _on_resume_button_pressed():
 	get_tree().paused = false
 
 
+func _on_restart_level_button_pressed():
+	sfx_controller.play_click_button()
+	
+	music_controller.reset_muffle()
+	get_tree().paused = false
+	transition_controller.reload_current_level(
+		restart_level_button.size,
+		restart_level_button.position,
+		restart_level_button.rotation_degrees
+	)
+
+
 func _on_main_menu_button_pressed():
 	sfx_controller.play_click_button()
 	
@@ -56,12 +69,6 @@ func _on_main_menu_button_pressed():
 	)
 
 
-func _on_exit_game_button_pressed():
-	sfx_controller.play_click_button()
-	await get_tree().create_timer(.3).timeout
-	get_tree().quit()
-
-
 ####################################################################################################
 # Button Hover Signals                                                                             #
 ####################################################################################################
@@ -69,13 +76,13 @@ func _on_pause_button_mouse_entered():
 	button_hover_shared()
 
 
-func _on_exit_game_button_mouse_entered():
+func _on_resume_button_mouse_entered():
+	button_hover_shared()
+
+
+func _on_restart_level_button_mouse_entered():
 	button_hover_shared()
 
 
 func _on_main_menu_button_mouse_entered():
-	button_hover_shared()
-
-
-func _on_resume_button_mouse_entered():
 	button_hover_shared()
