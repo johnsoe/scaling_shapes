@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c4ys4ftc6rii7" path="res://assets/background/gy_bg_layers/gy_bg_5.png" id="6_o6y8s"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="GraveyardForeground" type="ParallaxBackground"]
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
-scale = Vector2(1.5, 1.5)
 motion_scale = Vector2(2, 2)
 motion_mirroring = Vector2(1920, 0)
 
