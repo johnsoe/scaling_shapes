@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://autoload/events.gd"
+Events="*res://scenes/autoload/events.gd"
 MusicController="*res://scenes/autoload/music_controller.tscn"
 SFXController="*res://scenes/autoload/sfx_controller.tscn"
 TransitionController="*res://scenes/autoload/transition_controller.tscn"

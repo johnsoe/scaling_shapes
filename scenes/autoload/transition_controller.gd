@@ -1,10 +1,10 @@
-extends Control
+extends CanvasLayer
 
 @onready var music_controller = get_node("/root/MusicController")
 
-@onready var animation_player = $AnimationPlayer
-@onready var black_box = $BlackBox
-@onready var flavor_text = $FlavorText
+@onready var animation_player = $Constraints/AnimationPlayer
+@onready var black_box = $Constraints/BlackBox
+@onready var flavor_text = $Constraints/FlavorText
 
 ####################################################################################################
 # Scene Loading Data                                                                               #
@@ -43,18 +43,46 @@ var next_scene = scene_map["main_menu"]
 
 
 ####################################################################################################
+# Built-In Functions                                                                               #
+####################################################################################################
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
+####################################################################################################
 # Scene Transition Functions                                                                       #
 ####################################################################################################
-func transition_to_level(box_postition, box_rotation, target_level):
+func is_transitioning():
+	return animation_player.is_playing()
+
+
+func get_remaining_transition_time():
+	return animation_player.current_animation_length - animation_player.current_animation_position
+
+
+func transition_to_level(box_size, box_position, box_rotation, target_level):
 	
 	# Set transition box transform
-	black_box.set_position(box_postition)
+	black_box.size = box_size
+	black_box.set_position(box_position)
 	black_box.rotation_degrees = box_rotation
 	
 	# Set variables for transition
 	next_song = music_map[target_level]
 	next_scene = scene_map[target_level]
 	flavor_text.text = flavor_text_map[target_level]
+	
+	# Fade out current scene
+	music_controller.fade_out()
+	animation_player.play("Fade Out Scene")
+
+
+func reload_current_level(box_size, box_position, box_rotation):
+	
+	# Set transition box transform
+	black_box.size = box_size
+	black_box.set_position(box_position)
+	black_box.rotation_degrees = box_rotation
 	
 	# Fade out current scene
 	music_controller.fade_out()
