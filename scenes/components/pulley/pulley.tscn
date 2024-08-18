@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxyifp4hqr5gd"]
+
+[ext_resource type="Script" path="res://scenes/components/pulley/pulley.gd" id="1_3p61h"]
+[ext_resource type="PackedScene" uid="uid://dvm6pcf5jwvue" path="res://scenes/components/pulley/pulley_platform.tscn" id="1_xbeuk"]
+[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/sprites/spriteSheet.png" id="2_bbmcr"]
+[ext_resource type="PackedScene" uid="uid://bnh3ibxjgj15h" path="res://scenes/components/pulley/pulley_wheel.tscn" id="4_an7jh"]
+
+[node name="Pulley" type="Node2D"]
+script = ExtResource("1_3p61h")
+wheel_rotation_fraction = 8.0
+
+[node name="PlatformControl" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -734.0
+offset_top = -634.0
+offset_right = 778.0
+offset_bottom = 310.0
+
+[node name="PulleyPlatformLeft" parent="PlatformControl" instance=ExtResource("1_xbeuk")]
+position = Vector2(400, 650)
+
+[node name="PulleyPlatformRight" parent="PlatformControl" instance=ExtResource("1_xbeuk")]
+position = Vector2(1075, 650)
+
+[node name="TopRopeControl" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -275.36
+offset_top = -683.0
+offset_right = 274.64
+offset_bottom = -663.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TotalRope" type="Node2D" parent="TopRopeControl"]
+unique_name_in_owner = true
+position = Vector2(558, 6)
+
+[node name="Rope" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="Rope2" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+position = Vector2(-520, 0)
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="Rope3" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+position = Vector2(518, 0)
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="Rope4" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+position = Vector2(-260, 0)
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="Rope5" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+position = Vector2(259, 0)
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="Rope6" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+position = Vector2(-778, 0)
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="Rope7" type="Sprite2D" parent="TopRopeControl/TotalRope"]
+position = Vector2(778, 0)
+rotation = 1.5708
+texture = ExtResource("2_bbmcr")
+region_enabled = true
+region_rect = Rect2(261, 0, 22, 260)
+
+[node name="PulleyWheelLeft" parent="." instance=ExtResource("4_an7jh")]
+unique_name_in_owner = true
+position = Vector2(-279, -621)
+
+[node name="PulleyWheelRight" parent="." instance=ExtResource("4_an7jh")]
+unique_name_in_owner = true
+position = Vector2(282, -621)
+
+[connection signal="mass_updated" from="PlatformControl/PulleyPlatformLeft" to="." method="_on_pulley_platform_left_mass_updated"]
+[connection signal="mass_updated" from="PlatformControl/PulleyPlatformRight" to="." method="_on_pulley_platform_right_mass_updated"]

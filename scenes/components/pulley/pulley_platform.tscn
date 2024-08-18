@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvm6pcf5jwvue"]
+
+[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/sprites/spriteSheet.png" id="1_gjavu"]
+[ext_resource type="Script" path="res://scenes/components/pulley/pulley_platform.gd" id="1_jltt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hovcr"]
+size = Vector2(246, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjaj7"]
+size = Vector2(238, 22)
+
+[node name="PulleyPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_jltt1")
+difference_threshold = 0.25
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(2, -17.5188)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(0, 398, 259, 40)
+
+[node name="LeftRope" type="Sprite2D" parent="."]
+position = Vector2(-52, -184)
+rotation = 0.436332
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 1, 22, 251)
+
+[node name="LeftKnot" type="Sprite2D" parent="."]
+position = Vector2(-99, -49.5188)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 389, 45, 51)
+
+[node name="RightRope" type="Sprite2D" parent="."]
+position = Vector2(50.9171, -179.61)
+rotation = -0.436332
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 1, 22, 251)
+
+[node name="RightKnot" type="Sprite2D" parent="."]
+position = Vector2(103, -49.5188)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 389, 45, 51)
+
+[node name="TopRope" type="Node2D" parent="."]
+position = Vector2(-4, 45.4812)
+
+[node name="Rope" type="Sprite2D" parent="TopRope"]
+position = Vector2(1, -492)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 1, 22, 259)
+
+[node name="RopeExtension" type="Sprite2D" parent="TopRope"]
+position = Vector2(1, -750.481)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 1, 22, 259)
+
+[node name="Knot" type="Sprite2D" parent="TopRope"]
+position = Vector2(4, -337)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 389, 45, 51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -18.0188)
+shape = SubResource("RectangleShape2D_hovcr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -42)
+shape = SubResource("RectangleShape2D_bjaj7")
+one_way_collision = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
