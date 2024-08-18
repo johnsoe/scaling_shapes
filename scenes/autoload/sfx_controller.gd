@@ -11,36 +11,36 @@ extends Node
 
 
 func _ready():
-    process_mode = Node.PROCESS_MODE_ALWAYS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 func play_click_button():
-    sfx_click_button.play()
+	sfx_click_button.play()
 
 
 func play_ghost_enter():
-    sfx_ghost_enter.play()
+	sfx_ghost_enter.play()
 
 
 func play_ghost_exit():
-    sfx_ghost_exit.play()
+	sfx_ghost_exit.play()
 
 
 func play_level_complete():
-    sfx_level_complete.play()
+	sfx_level_complete.play()
 
 
 func play_pause_game():
-    sfx_pause_game.play()
+	sfx_pause_game.play()
 
 
 func play_resume_game():
-    sfx_resume_game.play()
+	sfx_resume_game.play()
 
 
 func play_scale_down():
-    sfx_scale_down.play()
+	sfx_scale_down.play()
 
 
 func play_scale_up():
-    sfx_scale_up.play()
+	sfx_scale_up.play()
