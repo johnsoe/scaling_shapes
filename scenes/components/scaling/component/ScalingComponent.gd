@@ -31,6 +31,7 @@ func scale_helper(delta):
 		clamp(sprite_2d.scale.y + delta, scale_min, scale_max),
 	)
 	rb_2d.mass = updated_scale.x
+	print(rb_2d.mass)
 	collision_2d.scale = updated_scale
 	sprite_2d.scale = updated_scale
 	

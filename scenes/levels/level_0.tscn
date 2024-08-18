@@ -441,7 +441,7 @@ script = ExtResource("1_d56su")
 [node name="HudOverlay" parent="." instance=ExtResource("1_qvnr0")]
 
 [node name="PlayerNode" parent="." instance=ExtResource("1_fa4gj")]
-position = Vector2(328, 681)
+position = Vector2(390, 590)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerNode"]
 position = Vector2(2.08165e-12, 2.08165e-12)
