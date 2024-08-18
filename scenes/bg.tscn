@@ -9,6 +9,7 @@
 
 [node name="GraveyardBackground" type="ParallaxBackground"]
 scroll_limit_end = Vector2(0, 1300)
+scroll_ignore_camera_zoom = true
 
 [node name="DistantBackground" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)
@@ -19,20 +20,21 @@ texture = ExtResource("1_pbops")
 centered = false
 
 [node name="FarBackground" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(1920, 0)
+scale = Vector2(1.5, 1.5)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="FarBackground"]
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_m75b5")
 centered = false
 
 [node name="TreesBackground" type="ParallaxLayer" parent="."]
+visible = false
+scale = Vector2(1.5, 1.5)
 motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(3744, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="TreesBackground"]
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_twfv3")
 centered = false
 

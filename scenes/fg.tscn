@@ -1,23 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://lq0ut8exd6tb"]
 
-[ext_resource type="Texture2D" uid="uid://d3r0niu3cb8ku" path="res://assets/background/gy_bg_layers/gy_bg_6.png" id="1_teto8"]
+[ext_resource type="Texture2D" uid="uid://f2fpu1hg12ga" path="res://assets/background/gy_bg_layers/gy_fg.png" id="1_jqsk2"]
 
 [node name="GraveyardForeground" type="ParallaxBackground"]
+offset = Vector2(0, 840)
+transform = Transform2D(1, 0, 0, 1, 0, 840)
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
-position = Vector2(0, 400)
-scale = Vector2(1.2, 1.2)
-motion_mirroring = Vector2(4608, 0)
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
-texture = ExtResource("1_teto8")
-centered = false
-
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
-position = Vector2(2304, 400)
-scale = Vector2(1.2, 1.2)
-motion_mirroring = Vector2(4608, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer7"]
-texture = ExtResource("1_teto8")
+texture = ExtResource("1_jqsk2")
 centered = false
