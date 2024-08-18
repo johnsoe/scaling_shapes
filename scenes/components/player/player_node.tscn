@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://16qibkk2s8nj"]
 
 [ext_resource type="Texture2D" uid="uid://whqikvg0ow88" path="res://fake_assets/tile_0121.png" id="1_tbfls"]
-[ext_resource type="Script" path="res://player/player_controller.gd" id="1_xum83"]
-[ext_resource type="Script" path="res://scaling/ScalingManager.gd" id="3_npv27"]
+[ext_resource type="Script" path="res://scenes/components/player/player_controller.gd" id="1_xum83"]
+[ext_resource type="Script" path="res://scenes/components/scaling/ScalingManager.gd" id="3_npv27"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gapsn"]
 radius = 6.0

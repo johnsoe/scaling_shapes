@@ -1,0 +1,141 @@
+[gd_scene load_steps=15 format=3 uid="uid://dynfh13ad2gk6"]
+
+[ext_resource type="Script" path="res://scenes/components/hud_overlay.gd" id="1_bwaou"]
+[ext_resource type="Texture2D" uid="uid://dpbh2pbtjjgja" path="res://assets/textures/buttons/pause_normal.png" id="1_huplk"]
+[ext_resource type="Texture2D" uid="uid://b5en7y3tes3r2" path="res://assets/textures/buttons/pause_pressed.png" id="2_bb0p6"]
+[ext_resource type="Texture2D" uid="uid://ytxkiowx1h07" path="res://assets/textures/buttons/pause_hover.png" id="3_o1i2w"]
+[ext_resource type="Texture2D" uid="uid://cqvlw75umermo" path="res://assets/textures/backgrounds/pause_menu.png" id="5_lfrg7"]
+[ext_resource type="Texture2D" uid="uid://n570jqv8trcb" path="res://assets/textures/buttons/pause_menu_resume_normal.png" id="6_4lycw"]
+[ext_resource type="Texture2D" uid="uid://djq8vs6tkrn4h" path="res://assets/textures/buttons/pause_menu_resume_pressed.png" id="7_ykanx"]
+[ext_resource type="Texture2D" uid="uid://dpy4mrwu60r4g" path="res://assets/textures/buttons/pause_menu_resume_hover.png" id="8_ohwsi"]
+[ext_resource type="Texture2D" uid="uid://b7v7eb6qvcyqh" path="res://assets/textures/buttons/pause_menu_main_normal.png" id="9_upjhp"]
+[ext_resource type="Texture2D" uid="uid://fsbkdhgtfcfa" path="res://assets/textures/buttons/pause_menu_main_pressed.png" id="10_rroyk"]
+[ext_resource type="Texture2D" uid="uid://eqhri0l600dv" path="res://assets/textures/buttons/pause_menu_main_hover.png" id="11_d7jep"]
+[ext_resource type="Texture2D" uid="uid://wxo5fgix54yo" path="res://assets/textures/buttons/pause_menu_exit_normal.png" id="12_puf75"]
+[ext_resource type="Texture2D" uid="uid://dw15enx7gyg8x" path="res://assets/textures/buttons/pause_menu_exit_pressed.png" id="13_epo2s"]
+[ext_resource type="Texture2D" uid="uid://ctqiqnu4aovkb" path="res://assets/textures/buttons/pause_menu_exit_hover.png" id="14_s2rq6"]
+
+[node name="HudOverlay" type="CanvasLayer"]
+script = ExtResource("1_bwaou")
+
+[node name="Constraints" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hud" type="Control" parent="Constraints"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Constraints/Hud"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 788.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 60
+text = "Welcome to Scaling Game!"
+
+[node name="PauseButton" type="TextureButton" parent="Constraints/Hud"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1760.0
+offset_top = 23.0
+offset_right = 1860.0
+offset_bottom = 123.0
+grow_horizontal = 0
+rotation = 0.0349066
+scale = Vector2(1.05, 1.05)
+texture_normal = ExtResource("1_huplk")
+texture_pressed = ExtResource("2_bb0p6")
+texture_hover = ExtResource("3_o1i2w")
+
+[node name="PauseMenu" type="Control" parent="Constraints"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuBackground" type="TextureRect" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_lfrg7")
+
+[node name="ResumeButton" type="TextureButton" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -235.0
+offset_right = 200.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_4lycw")
+texture_pressed = ExtResource("7_ykanx")
+texture_hover = ExtResource("8_ohwsi")
+
+[node name="MainMenuButton" type="TextureButton" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_upjhp")
+texture_pressed = ExtResource("10_rroyk")
+texture_hover = ExtResource("11_d7jep")
+
+[node name="ExitGameButton" type="TextureButton" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 85.0
+offset_right = 200.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("12_puf75")
+texture_pressed = ExtResource("13_epo2s")
+texture_hover = ExtResource("14_s2rq6")
+
+[connection signal="mouse_entered" from="Constraints/Hud/PauseButton" to="." method="_on_pause_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/Hud/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="mouse_entered" from="Constraints/PauseMenu/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="Constraints/PauseMenu/MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/PauseMenu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="Constraints/PauseMenu/ExitGameButton" to="." method="_on_exit_game_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/PauseMenu/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

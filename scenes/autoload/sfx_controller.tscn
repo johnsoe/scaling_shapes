@@ -13,26 +13,26 @@
 [node name="SFXController" type="Node"]
 script = ExtResource("1_tmdo1")
 
-[node name="SFX_ClickButton" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_ClickButton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_kfu8w")
 
-[node name="SFX_GhostEnter" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_GhostEnter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1rs3n")
 
-[node name="SFX_GhostExit" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_GhostExit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_rfd7u")
 
-[node name="SFX_LevelComplete" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_LevelComplete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_pnd3r")
 
-[node name="SFX_PauseGame" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_PauseGame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_cbf4l")
 
-[node name="SFX_ResumeGame" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_ResumeGame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_bgi7v")
 
-[node name="SFX_ScaleDown" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_ScaleDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_jwgio")
 
-[node name="SFX_ScaleUp" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX_ScaleUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_n3rym")

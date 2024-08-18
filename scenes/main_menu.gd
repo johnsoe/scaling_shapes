@@ -20,6 +20,12 @@ var buttons_active = false
 # Built-In Functions                                                                               #
 ####################################################################################################
 func _ready():
+	if transition_controller.is_transitioning():
+		var wait_time = transition_controller.get_remaining_transition_time()
+		await get_tree().create_timer(wait_time + .2).timeout
+	
+	menu_animation.play("Menu Intro")
+	logo_animation.play("Logo Intro")
 	music_controller.load_song("title")
 	music_controller.fade_in()
 
@@ -53,6 +59,7 @@ func transition_to_level(level_button: TextureButton):
 	buttons_active = false
 	sfx_controller.play_click_button()
 	transition_controller.transition_to_level(
+		level_button.size,
 		level_button.position,
 		level_button.rotation_degrees,
 		target_level

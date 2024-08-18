@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://chau7orh4vnwt"]
+[gd_scene load_steps=10 format=3 uid="uid://chau7orh4vnwt"]
 
-[ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://player/player_node.tscn" id="1_fa4gj"]
+[ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="1_fa4gj"]
+[ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_qvnr0"]
 [ext_resource type="Texture2D" uid="uid://cp77f44kl8apq" path="res://fake_assets/tilemap_packed.png" id="2_qq2xc"]
 [ext_resource type="Texture2D" uid="uid://cmxr7gio58iu1" path="res://fake_assets/tile_0108.png" id="3_5oj4y"]
-[ext_resource type="PackedScene" uid="uid://c8crc1k14rsjb" path="res://scaling/platform/platform.tscn" id="3_cr4q7"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scaling/component/ScalingComponent.tscn" id="4_dg56c"]
+[ext_resource type="PackedScene" uid="uid://c8crc1k14rsjb" path="res://scenes/components/scaling/platform/platform.tscn" id="3_cr4q7"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/component/ScalingComponent.tscn" id="4_dg56c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u02lf"]
 texture = ExtResource("2_qq2xc")
@@ -434,6 +435,8 @@ sources/0 = SubResource("TileSetAtlasSource_u02lf")
 radius = 7.0
 
 [node name="Level_0" type="Node2D"]
+
+[node name="HudOverlay" parent="." instance=ExtResource("1_qvnr0")]
 
 [node name="PlayerNode" parent="." instance=ExtResource("1_fa4gj")]
 position = Vector2(328, 681)

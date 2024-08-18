@@ -668,22 +668,20 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_86oqh")
 }
-autoplay = "Menu Intro"
 
 [node name="LogoAnimation" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_86oqh")
 }
-autoplay = "Logo Intro"
 
-[node name="SFX_Button" type="AudioStreamPlayer2D" parent="Animation"]
+[node name="SFX_Button" type="AudioStreamPlayer" parent="Animation"]
 stream = ExtResource("26_xlwpf")
 
-[node name="SFX_ScaleUp" type="AudioStreamPlayer2D" parent="Animation"]
+[node name="SFX_ScaleUp" type="AudioStreamPlayer" parent="Animation"]
 stream = ExtResource("27_53ijl")
 
-[node name="SFX_ScaleDown" type="AudioStreamPlayer2D" parent="Animation"]
+[node name="SFX_ScaleDown" type="AudioStreamPlayer" parent="Animation"]
 stream = ExtResource("28_xdmst")
 
 [node name="Buttons" type="Node" parent="."]

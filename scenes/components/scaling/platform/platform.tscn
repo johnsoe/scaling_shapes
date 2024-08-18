@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8crc1k14rsjb"]
 
 [ext_resource type="Texture2D" uid="uid://nyhnjsw01u2k" path="res://fake_assets/taiga_ [resources].png" id="1_ofth3"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scaling/component/ScalingComponent.tscn" id="2_3wd23"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/component/ScalingComponent.tscn" id="2_3wd23"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wsf2"]
 size = Vector2(22, 14)
