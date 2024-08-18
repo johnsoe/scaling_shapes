@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://lq0ut8exd6tb"]
+
+[ext_resource type="Texture2D" uid="uid://c4ys4ftc6rii7" path="res://assets/background/gy_bg_layers/gy_bg_5.png" id="6_o6y8s"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+texture = ExtResource("6_o6y8s")
+centered = false
