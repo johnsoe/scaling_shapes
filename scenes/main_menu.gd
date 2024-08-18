@@ -1,9 +1,5 @@
 extends Control
 
-@onready var music_controller = get_node("/root/MusicController")
-@onready var sfx_controller = get_node("/root/SFXController")
-@onready var transition_controller = get_node("/root/TransitionController")
-
 @onready var menu_animation = $Animation/MenuAnimation
 @onready var logo_animation = $Animation/LogoAnimation
 @onready var level_1_button = $Buttons/Level1Button
@@ -20,14 +16,14 @@ var buttons_active = false
 # Built-In Functions                                                                               #
 ####################################################################################################
 func _ready():
-	if transition_controller.is_transitioning():
-		var wait_time = transition_controller.get_remaining_transition_time()
+	if TransitionController.is_transitioning():
+		var wait_time = TransitionController.get_remaining_transition_time()
 		await get_tree().create_timer(wait_time + .2).timeout
 	
 	menu_animation.play("Menu Intro")
 	logo_animation.play("Logo Intro")
-	music_controller.load_song("title")
-	music_controller.fade_in()
+	MusicController.load_song("title")
+	MusicController.fade_in()
 
 
 ####################################################################################################
@@ -37,7 +33,7 @@ func button_hover_shared():
 	if not buttons_active:
 		return
 	
-	sfx_controller.play_click_button()
+	SFXController.play_click_button()
 
 
 func transition_to_level(level_button: TextureButton):
@@ -57,8 +53,8 @@ func transition_to_level(level_button: TextureButton):
 		target_level = "level_5"
 	
 	buttons_active = false
-	sfx_controller.play_click_button()
-	transition_controller.transition_to_level(
+	SFXController.play_click_button()
+	TransitionController.transition_to_level(
 		level_button.size,
 		level_button.position,
 		level_button.rotation_degrees,
@@ -87,7 +83,7 @@ func _on_fullscreen_button_pressed():
 	if not buttons_active:
 		return
 		
-	sfx_controller.play_click_button()
+	SFXController.play_click_button()
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_size(window_size)
@@ -102,7 +98,7 @@ func _on_exit_button_pressed():
 	if not buttons_active:
 		return
 		
-	sfx_controller.play_click_button()
+	SFXController.play_click_button()
 	await get_tree().create_timer(.3).timeout
 	get_tree().quit()
 

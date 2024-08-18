@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@onready var music_controller = get_node("/root/MusicController")
-
 @onready var animation_player = $Constraints/AnimationPlayer
 @onready var black_box = $Constraints/BlackBox
 @onready var flavor_text = $Constraints/FlavorText
@@ -73,7 +71,7 @@ func transition_to_level(box_size, box_position, box_rotation, target_level):
 	flavor_text.text = flavor_text_map[target_level]
 	
 	# Fade out current scene
-	music_controller.fade_out()
+	MusicController.fade_out()
 	animation_player.play("Fade Out Scene")
 
 
@@ -85,7 +83,7 @@ func reload_current_level(box_size, box_position, box_rotation):
 	black_box.rotation_degrees = box_rotation
 	
 	# Fade out current scene
-	music_controller.fade_out()
+	MusicController.fade_out()
 	animation_player.play("Fade Out Scene")
 
 
@@ -93,10 +91,14 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Fade Out Scene":
 		if next_scene != null:
 			
+			# Unpause the engine if needed
+			if get_tree().paused:
+				get_tree().paused = false
+			
 			# Load next scene
-			music_controller.load_song(next_song)
+			MusicController.load_song(next_song)
 			get_tree().change_scene_to_file(next_scene)
 			
 			# Fade in new scene
-			music_controller.fade_in()
+			MusicController.fade_in()
 			animation_player.play("Fade In Scene")
