@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SoundEffects="*res://scenes/autoload/sound_effects.tscn"
 Events="*res://autoload/events.gd"
+MusicController="*res://scenes/autoload/music_controller.tscn"
+SFXController="*res://scenes/autoload/sfx_controller.tscn"
+TransitionController="*res://scenes/autoload/transition_controller.tscn"
 
 [display]
 
