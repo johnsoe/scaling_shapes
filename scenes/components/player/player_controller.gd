@@ -10,6 +10,7 @@ signal uninhabit_node()
 @onready var collision2d = $CollisionShape2D
 @onready var area2d = $Area2D
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var coyote_timer = $CoyoteTimer
 
 var nearbyObjects = []
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -43,17 +44,22 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 		else:
 			velocity.y = 0
+		velocity.x = 0
 		move_and_slide()
 		return
 		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() || !coyote_timer.is_stopped()):
 		velocity.y = jump_speed
-		
+	
+	var was_on_floor = is_on_floor()
 	get_input()
 	move_and_slide()
+	if was_on_floor and !is_on_floor():
+		coyote_timer.start()
+	
 
 
 # Area entered signal from area2d

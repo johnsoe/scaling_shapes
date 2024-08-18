@@ -44,6 +44,9 @@ autoplay = "run"
 frame = 1
 frame_progress = 0.518968
 
+[node name="ScalingManager" type="Node" parent="."]
+script = ExtResource("3_npv27")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_iayn0")
 
@@ -53,8 +56,10 @@ shape = SubResource("CapsuleShape2D_iayn0")
 position = Vector2(2.08165e-12, 1.75)
 shape = SubResource("CircleShape2D_5d42r")
 
-[node name="ScalingManager" type="Node" parent="."]
-script = ExtResource("3_npv27")
+[node name="CoyoteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.15
+one_shot = true
 
 [connection signal="inhabit_node" from="." to="ScalingManager" method="_on_player_node_inhabit_node"]
 [connection signal="uninhabit_node" from="." to="ScalingManager" method="_on_player_node_uninhabit_node"]
