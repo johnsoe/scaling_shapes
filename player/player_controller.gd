@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-signal inhabit_node(node: Node2D)
+signal inhabit_node(node: RigidBody2D)
 signal uninhabit_node()
 
 @export var speed = 400
 @export var jump_speed = -400
 
 @onready var scaling_manager: ScalingManager = $ScalingManager
+@onready var collision2d = $CollisionShape2D
+@onready var area2d = $Area2D
 
 var nearbyObjects = []
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,6 +30,12 @@ func get_input():
 
 func _physics_process(delta):
 	if scaling_manager.is_inhabited():
+		var rb2d = scaling_manager.inhabited_node
+		if area2d.overlaps_body(rb2d):
+			velocity.y = jump_speed
+		else:
+			velocity.y = 0
+		move_and_slide()
 		return
 		
 	if not is_on_floor():
@@ -42,8 +50,9 @@ func _physics_process(delta):
 
 # Area entered signal from area2d
 func _on_area_2d_body_entered(body: Node2D):
-	if body.is_in_group("habitable_objects") and not nearbyObjects.has(body):
-		nearbyObjects.append(body)
+	if body.is_in_group("habitable_objects") and not nearbyObjects.has(body) and body is RigidBody2D:
+		nearbyObjects.append(body as RigidBody2D)
+
 
 # Area exited signal from area2d
 func _on_area_2d_body_exited(body: Node2D):
@@ -53,9 +62,12 @@ func _on_area_2d_body_exited(body: Node2D):
 
 
 func on_inhabit():
+	collision2d.set_deferred("disabled", true)
+	hide()
 	inhabit_node.emit(nearbyObjects.back())
 	
 
-
 func on_uninhabit():
+	collision2d.set_deferred("disabled", false)
+	show()
 	uninhabit_node.emit()

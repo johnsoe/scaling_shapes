@@ -1,7 +1,7 @@
 extends Node
 class_name ScalingManager
 
-var inhabited_node: Node2D = null
+var inhabited_node: RigidBody2D = null
 
 func is_inhabited(): 
 	return inhabited_node != null
