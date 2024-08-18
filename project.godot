@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SoundEffects="*res://scenes/autoload/sound_effects.tscn"
 Events="*res://scenes/autoload/events.gd"
 MusicController="*res://scenes/autoload/music_controller.tscn"
 SFXController="*res://scenes/autoload/sfx_controller.tscn"
@@ -26,7 +27,7 @@ TransitionController="*res://scenes/autoload/transition_controller.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
