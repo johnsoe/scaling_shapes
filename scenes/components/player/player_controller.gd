@@ -9,6 +9,7 @@ signal uninhabit_node()
 @onready var scaling_manager: ScalingManager = $ScalingManager
 @onready var collision2d = $CollisionShape2D
 @onready var area2d = $Area2D
+@onready var animated_sprite = $AnimatedSprite2D
 
 var nearbyObjects = []
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,8 +21,15 @@ func _input(event):
 		elif not nearbyObjects.is_empty():
 			on_inhabit()
 
+
 func get_input():
 	var input_direction = Input.get_axis("left", "right")
+	
+	if input_direction > 0:
+		animated_sprite.flip_h = false
+	elif input_direction < 0:
+		animated_sprite.flip_h = true
+	
 	if input_direction:
 		velocity.x = input_direction * speed
 	else:
