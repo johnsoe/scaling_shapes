@@ -435,14 +435,17 @@ sources/0 = SubResource("TileSetAtlasSource_u02lf")
 [node name="GraveyardBackground" parent="." instance=ExtResource("1_f2rhr")]
 
 [node name="PlayerNode" parent="." instance=ExtResource("1_fa4gj")]
-position = Vector2(328, 681)
+position = Vector2(979, 981)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="PlayerNode"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.25, 0.25)
+limit_bottom = 1500
 position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(214, 315)
 scale = Vector2(2.5, 2.5)
 tile_set = SubResource("TileSet_y1svv")
 format = 2

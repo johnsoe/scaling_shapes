@@ -19,7 +19,7 @@ texture = ExtResource("1_pbops")
 centered = false
 
 [node name="FarBackground" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="FarBackground"]
@@ -28,7 +28,7 @@ texture = ExtResource("2_m75b5")
 centered = false
 
 [node name="TreesBackground" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="TreesBackground"]
@@ -37,6 +37,7 @@ texture = ExtResource("3_twfv3")
 centered = false
 
 [node name="GroundBackground" type="ParallaxLayer" parent="."]
+position = Vector2(0, 300)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="GroundBackground"]
@@ -44,10 +45,20 @@ texture = ExtResource("4_nun0a")
 centered = false
 
 [node name="AccessoriesBackground" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(1920, 0)
+position = Vector2(1920, 300)
+motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="AccessoriesBackground"]
 texture = ExtResource("5_mikcp")
+centered = false
+
+[node name="AccessoriesBackground2" type="ParallaxLayer" parent="."]
+position = Vector2(0, 1000)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="AccessoriesBackground2"]
+position = Vector2(21.4286, -647.143)
+texture = ExtResource("6_5atxc")
 centered = false
 
 [node name="Foreground" type="ParallaxLayer" parent="."]
