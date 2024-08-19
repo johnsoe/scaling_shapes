@@ -10,25 +10,22 @@ extends CanvasLayer
 var music_map: Dictionary = {
 								"main_menu": "title",
 								"level_1": "graveyard",
-								"level_2": "cave",
-								"level_3": "sewer",
-								"level_4": "pharmacy"
+								"level_2": "sewer",
+								"level_3": "cave"
 							}
 
 var scene_map: Dictionary = {
 								"main_menu": "res://scenes/main_menu.tscn",
-								"level_1": "res://scenes/levels/level_0.tscn",
-								"level_2": "res://scenes/levels/level_0.tscn",
-								"level_3": "res://scenes/levels/level_0.tscn",
-								"level_4": "res://scenes/levels/level_0.tscn"
+								"level_1": "res://scenes/levels/l1_graveyard.tscn",
+								"level_2": "res://scenes/levels/l2_sewer.tscn",
+								"level_3": "res://scenes/levels/l3_cave.tscn"
 							}
 
 var flavor_text_map: Dictionary = {
 									  "main_menu": "Main Menu",
-									  "level_1": "Level 1: The Graveyard",
-									  "level_2": "Level 2: The Caves",
-									  "level_3": "Level 3: The Sewers",
-									  "level_4": "Level 4: The Pharmacy"
+									  "level_1": "Level 1:\nThe Growing Graveyard",
+									  "level_2": "Level 2:\nSeattle's Scalable Sewers",
+									  "level_3": "Level 3:\nCave of Condensing"
 								  }
 
 ####################################################################################################
@@ -56,12 +53,10 @@ func get_remaining_transition_time() -> float:
 	return animation_player.current_animation_length - animation_player.current_animation_position
 
 
-func transition_to_level(box_size: Vector2, box_position: Vector2, box_rotation: float, target_level: String):
+func transition_to_level(caller_size: Vector2, box_position: Vector2, target_level: String):
 
 	# Set transition box transform
-	black_box.size = box_size
-	black_box.set_position(box_position)
-	black_box.rotation_degrees = box_rotation
+	black_box.set_position(box_position + caller_size / 2 - black_box.size / 2)
 
 	# Set variables for transition
 	next_song = music_map[target_level]
@@ -73,12 +68,10 @@ func transition_to_level(box_size: Vector2, box_position: Vector2, box_rotation:
 	animation_player.play("Fade Out Scene")
 
 
-func reload_current_level(box_size: Vector2, box_position: Vector2, box_rotation: float):
+func reload_current_level(caller_size: Vector2, box_position: Vector2):
 
 	# Set transition box transform
-	black_box.size = box_size
-	black_box.set_position(box_position)
-	black_box.rotation_degrees = box_rotation
+	black_box.set_position(box_position + caller_size / 2 - black_box.size / 2)
 
 	# Fade out current scene
 	MusicController.fade_out()

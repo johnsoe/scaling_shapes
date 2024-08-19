@@ -1,9 +1,9 @@
-# Scaling Shapes
+# Cheek-A-Boo
 
-## Level Themes
+A ghost with the power to scale objects up and down is on the loose!
 
-- Level 1: Graveyard
-- Level 2: Cave
-- Level 3: Forest
-- Level 4: Sewer / Water
-- Level 5: Random / Pharmacy ?
+## Levels
+
+- Level 1: The Growing Graveyard
+- Level 2: Seattle's Scalable Sewers
+- Level 3: Cave of Condensing

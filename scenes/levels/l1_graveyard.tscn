@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbjqo72ufu8il"]
+
+[ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_t4744"]
+
+[node name="Graveyard" type="Node2D"]
+
+[node name="HudOverlay" parent="." instance=ExtResource("1_t4744")]

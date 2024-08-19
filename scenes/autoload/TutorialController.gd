@@ -3,7 +3,6 @@ extends Node2D
 const TUTORIAL_BUFFER: Vector2 = Vector2(0, -100)
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 ####################################################################################################
 # Tutorial Data                                                                                    #
 ####################################################################################################
@@ -15,13 +14,13 @@ enum tutorial_step {
 	scale_down
 }
 
-var tutorial_messages: Array[String]     = [
-										   "Press [A] to move left\nPress [D] to move right",
-										   "Press [Space] to jump",
-										   "Press [R] to possess an object\nPress [R] to leave the object",
-										   "While possessing an object:\nPress [W] to increase it's scale",
-										   "While possessing an object:\nPress [S] to decrease it's scale"
-										   ]
+var tutorial_messages: Array[String] = [
+									   "Press [A] to move left\nPress [D] to move right",
+									   "Press [Space] to jump",
+									   "Press [R] to possess an object\nPress [R] to leave the object",
+									   "While possessing an object:\nPress [W] to increase it's scale",
+									   "While possessing an object:\nPress [S] to decrease it's scale"
+									   ]
 
 var tutorial_complete: bool              = false
 var tutorial_current_step: tutorial_step = tutorial_step.move
