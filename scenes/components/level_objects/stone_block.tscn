@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bllpf6wtqaxmu"]
+
+[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/textures/sprites/spriteSheet.png" id="1_q7abp"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_7h1mt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wsf2"]
+size = Vector2(111, 110)
+
+[node name="StoneBlock" type="RigidBody2D" groups=["habitable_objects"]]
+mass = 5.0
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q7abp")
+region_enabled = true
+region_rect = Rect2(689.5, 2.5, 114, 113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1wsf2")
+
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "sprite_2d") instance=ExtResource("2_7h1mt")]
+scale_max = 10.0
+rb_2d = NodePath("..")
+collision_2d = NodePath("../CollisionShape2D")
+sprite_2d = NodePath("../Sprite2D")

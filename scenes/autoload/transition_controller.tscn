@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://11aj06eemmgi"]
+[gd_scene load_steps=10 format=3 uid="uid://11aj06eemmgi"]
 
 [ext_resource type="Script" path="res://scenes/autoload/transition_controller.gd" id="1_61ek4"]
 [ext_resource type="Texture2D" uid="uid://cjqdf7tgg61y4" path="res://assets/textures/transition_black.png" id="1_gkwbh"]
-[ext_resource type="AudioStream" uid="uid://clu2qlsv8y608" path="res://assets/sound_effects/sfx_scale_up.ogg" id="3_troay"]
-[ext_resource type="AudioStream" uid="uid://5q76bhyxuj6m" path="res://assets/sound_effects/sfx_scale_down.ogg" id="4_cx41y"]
+[ext_resource type="AudioStream" uid="uid://b2m1k3yggkyxx" path="res://assets/sound_effects/sfx_scale_up.ogg" id="3_troay"]
+[ext_resource type="FontFile" uid="uid://b5bo5i8glyepd" path="res://assets/fonts/lonely_cake.otf" id="3_w04vd"]
+[ext_resource type="AudioStream" uid="uid://d2pqd3nywuarh" path="res://assets/sound_effects/sfx_scale_down.ogg" id="4_cx41y"]
 
 [sub_resource type="Animation" id="Animation_1dmx3"]
 resource_name = "Fade In Scene"
@@ -256,6 +257,7 @@ offset_right = 139.5
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_w04vd")
 theme_override_font_sizes/font_size = 80
 text = "Testing"
 

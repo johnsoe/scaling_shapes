@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8crc1k14rsjb"]
+
+[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/textures/sprites/spriteSheet.png" id="1_vywrv"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_p364r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsg6w"]
+radius = 32.0
+height = 86.0
+
+[node name="Skull" type="RigidBody2D" groups=["habitable_objects"]]
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vywrv")
+region_enabled = true
+region_rect = Rect2(173.842, 1.32631, 73.7787, 87.2897)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_vsg6w")
+
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "sprite_2d") instance=ExtResource("2_p364r")]
+scale_max = 10.0
+rb_2d = NodePath("..")
+collision_2d = NodePath("../CollisionShape2D")
+sprite_2d = NodePath("../Sprite2D")

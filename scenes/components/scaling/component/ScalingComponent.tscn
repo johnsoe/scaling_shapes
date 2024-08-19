@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxfg6bse4mwq7"]
-
-[ext_resource type="Script" path="res://scenes/components/scaling/component/ScalingComponent.gd" id="1_3gukr"]
-
-[node name="ScalingController" type="Node"]
-script = ExtResource("1_3gukr")

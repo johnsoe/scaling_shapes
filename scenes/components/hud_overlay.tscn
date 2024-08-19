@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dynfh13ad2gk6"]
+[gd_scene load_steps=16 format=3 uid="uid://dynfh13ad2gk6"]
 
 [ext_resource type="Script" path="res://scenes/components/hud_overlay.gd" id="1_bwaou"]
 [ext_resource type="Texture2D" uid="uid://dpbh2pbtjjgja" path="res://assets/textures/buttons/pause_normal.png" id="1_huplk"]
 [ext_resource type="Texture2D" uid="uid://b5en7y3tes3r2" path="res://assets/textures/buttons/pause_pressed.png" id="2_bb0p6"]
+[ext_resource type="FontFile" uid="uid://b5bo5i8glyepd" path="res://assets/fonts/lonely_cake.otf" id="2_dpi3p"]
 [ext_resource type="Texture2D" uid="uid://ytxkiowx1h07" path="res://assets/textures/buttons/pause_hover.png" id="3_o1i2w"]
 [ext_resource type="Texture2D" uid="uid://cqvlw75umermo" path="res://assets/textures/backgrounds/pause_menu.png" id="5_lfrg7"]
 [ext_resource type="Texture2D" uid="uid://n570jqv8trcb" path="res://assets/textures/buttons/pause_menu_resume_normal.png" id="6_4lycw"]
@@ -34,9 +35,10 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="Constraints/Hud"]
 layout_mode = 1
 offset_left = 20.0
-offset_top = 20.0
+offset_top = 15.0
 offset_right = 788.0
-offset_bottom = 103.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("2_dpi3p")
 theme_override_font_sizes/font_size = 60
 text = "Welcome to Scaling Game!"
 
