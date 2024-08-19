@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cgicqkse3trv5"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bib4ncnexijkb"]
 
 [ext_resource type="Texture2D" uid="uid://csexgjfq4oogm" path="res://assets/tile_sets/tilesheet_sewer.png" id="1_2fe8f"]
 [ext_resource type="Texture2D" uid="uid://cc5qhcodeti7p" path="res://assets/tile_sets/tilesheet_graveyard.png" id="2_survf"]

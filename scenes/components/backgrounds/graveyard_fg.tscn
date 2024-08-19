@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://lq0ut8exd6tb"]
+
+[ext_resource type="Texture2D" uid="uid://f2fpu1hg12ga" path="res://assets/textures/backgrounds/graveyard/gy_fg.png" id="1_jqsk2"]
+
+[node name="GraveyardForeground" type="ParallaxBackground"]
+layer = 100
+scroll_ignore_camera_zoom = true
+
+[node name="ForegroundLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.25, 1.25)
+motion_mirroring = Vector2(4608, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForegroundLayer"]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_jqsk2")
+centered = false
+offset = Vector2(0, -50)

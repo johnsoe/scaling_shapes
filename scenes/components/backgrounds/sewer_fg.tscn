@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://vhvscrfr5ebi"]
+
+[ext_resource type="Texture2D" uid="uid://codvycj1tj3lv" path="res://assets/textures/backgrounds/sewer/sewer_fg_1.png" id="1_icmuo"]
+[ext_resource type="Texture2D" uid="uid://rtsuamipibn7" path="res://assets/textures/backgrounds/sewer/sewer_fg_2.png" id="2_ud8ha"]
+
+[node name="SewerForeground" type="ParallaxBackground"]
+layer = 2
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.25, 1.25)
+motion_mirroring = Vector2(1920, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_icmuo")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+visible = false
+position = Vector2(1920, 0)
+motion_scale = Vector2(2, 2)
+motion_offset = Vector2(1920, 0)
+motion_mirroring = Vector2(3840, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_ud8ha")
+centered = false
