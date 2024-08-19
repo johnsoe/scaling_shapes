@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d03ymsw20n8k3"
-path="res://.godot/imported/spriteSheet.png-c201165c139570a392a024b4bc62a42f.ctex"
+uid="uid://csexgjfq4oogm"
+path="res://.godot/imported/tilesheet_sewer.png-98ab33ac2dac1b3d7f8e924f41f4d896.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/sprites/spriteSheet.png"
-dest_files=["res://.godot/imported/spriteSheet.png-c201165c139570a392a024b4bc62a42f.ctex"]
+source_file="res://assets/tile_sets/tilesheet_sewer.png"
+dest_files=["res://.godot/imported/tilesheet_sewer.png-98ab33ac2dac1b3d7f8e924f41f4d896.ctex"]
 
 [params]
 

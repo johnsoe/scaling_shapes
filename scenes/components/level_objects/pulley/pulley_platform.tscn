@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvm6pcf5jwvue"]
 
-[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/textures/sprites/spriteSheet.png" id="1_gjavu"]
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_gjavu"]
 [ext_resource type="Script" path="res://scenes/components/level_objects/pulley/pulley_platform.gd" id="1_jltt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hovcr"]
