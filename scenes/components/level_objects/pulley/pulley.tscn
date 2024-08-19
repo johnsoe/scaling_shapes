@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/components/level_objects/pulley/pulley.gd" id="1_3p61h"]
 [ext_resource type="PackedScene" uid="uid://dvm6pcf5jwvue" path="res://scenes/components/level_objects/pulley/pulley_platform.tscn" id="1_xbeuk"]
-[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/textures/sprites/spriteSheet.png" id="2_bbmcr"]
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="2_bbmcr"]
 [ext_resource type="PackedScene" uid="uid://bnh3ibxjgj15h" path="res://scenes/components/level_objects/pulley/pulley_wheel.tscn" id="4_an7jh"]
 
 [node name="Pulley" type="Node2D"]

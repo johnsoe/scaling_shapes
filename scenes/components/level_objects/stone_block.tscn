@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ci7qb7t4ewfwe"]
 
-[ext_resource type="Texture2D" uid="uid://buwuwxnbkiwyu" path="res://assets/sprites/spriteSheet.png" id="1_vu6xw"]
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_vu6xw"]
 [ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_7h1mt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n7dfb"]
