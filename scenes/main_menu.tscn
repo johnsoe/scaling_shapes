@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://8l6qx2ci6f8r"]
+[gd_scene load_steps=29 format=3 uid="uid://8l6qx2ci6f8r"]
 
 [ext_resource type="Texture2D" uid="uid://b2wwcb0vsoepq" path="res://assets/textures/team_scones_logo.png" id="1_2nhpa"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_evalm"]
@@ -19,9 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://dbsnj6rftg5ll" path="res://assets/textures/buttons/level3_normal.png" id="17_wvqw8"]
 [ext_resource type="Texture2D" uid="uid://dk4ixwnp3u18h" path="res://assets/textures/buttons/level3_pressed.png" id="18_grtag"]
 [ext_resource type="Texture2D" uid="uid://cg1pxlsaqc5m8" path="res://assets/textures/buttons/level3_hover.png" id="19_73p72"]
-[ext_resource type="Texture2D" uid="uid://bg8clxqfohkqc" path="res://assets/textures/buttons/level4_normal.png" id="20_gchvl"]
-[ext_resource type="Texture2D" uid="uid://qumkgj0myy4v" path="res://assets/textures/buttons/level4_pressed.png" id="21_mdd55"]
-[ext_resource type="Texture2D" uid="uid://bcbdhwatqueim" path="res://assets/textures/buttons/level4_hover.png" id="22_ahb3v"]
 [ext_resource type="AudioStream" uid="uid://cugs7a4de2unb" path="res://assets/sound_effects/sfx_click_button.ogg" id="26_xlwpf"]
 [ext_resource type="AudioStream" uid="uid://b2m1k3yggkyxx" path="res://assets/sound_effects/sfx_scale_up.ogg" id="27_53ijl"]
 [ext_resource type="AudioStream" uid="uid://d2pqd3nywuarh" path="res://assets/sound_effects/sfx_scale_down.ogg" id="28_xdmst"]
@@ -121,7 +118,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_t53af"]
 resource_name = "Menu Intro"
-length = 4.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,7 +126,7 @@ tracks/0/path = NodePath("Buttons/FullscreenButton:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.8),
+"times": PackedFloat32Array(0, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -141,7 +138,7 @@ tracks/1/path = NodePath("Buttons/ExitButton:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.8),
+"times": PackedFloat32Array(0, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -153,7 +150,7 @@ tracks/2/path = NodePath("TeamLogo:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.7, 3.8),
+"times": PackedFloat32Array(0, 3.4, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -165,7 +162,7 @@ tracks/3/path = NodePath("Buttons/FullscreenButton:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.7, 3.8),
+"times": PackedFloat32Array(0, 3.4, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -177,7 +174,7 @@ tracks/4/path = NodePath("Buttons/ExitButton:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 3.7, 3.8),
+"times": PackedFloat32Array(0, 3.4, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -189,7 +186,7 @@ tracks/5/path = NodePath("Buttons/Level1Button:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 3.8),
+"times": PackedFloat32Array(0, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -213,7 +210,7 @@ tracks/7/path = NodePath("Buttons/Level2Button:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 3.8),
+"times": PackedFloat32Array(0, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -237,7 +234,7 @@ tracks/9/path = NodePath("Buttons/Level3Button:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 3.8),
+"times": PackedFloat32Array(0, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -257,38 +254,14 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Buttons/Level4Button:disabled")
+tracks/11/path = NodePath("Animation/SFX_Button:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 3.8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(2.2, 2.6, 3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Buttons/Level4Button:modulate")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 3.4, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Animation/SFX_Button:playing")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(2.2, 2.6, 3, 3.4, 3.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, true, true, true]
+"values": [true, true, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_1dfnj"]
@@ -493,82 +466,58 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Buttons/Level4Button:disabled")
+tracks/14/path = NodePath("Animation/SFX_Button:playing")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Buttons/Level4Button:modulate")
+tracks/15/path = NodePath("TeamLogo:rotation")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [0.0]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Animation/SFX_Button:playing")
+tracks/16/path = NodePath("TeamLogo:scale")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0.425781, 0.425781)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("TeamLogo:rotation")
+tracks/17/path = NodePath("Animation/SFX_ScaleUp:playing")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("TeamLogo:scale")
+tracks/18/path = NodePath("Animation/SFX_ScaleDown:playing")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.425781, 0.425781)]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("Animation/SFX_ScaleUp:playing")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("Animation/SFX_ScaleDown:playing")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -671,11 +620,10 @@ texture_hover = ExtResource("10_4i13v")
 
 [node name="Level1Button" type="TextureButton" parent="Buttons"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 72.0
-offset_top = 797.0
-offset_right = 272.0
-offset_bottom = 997.0
-rotation = -0.13439
+offset_left = 320.0
+offset_top = 700.0
+offset_right = 520.0
+offset_bottom = 900.0
 disabled = true
 texture_normal = ExtResource("11_plkic")
 texture_pressed = ExtResource("12_f03wt")
@@ -683,11 +631,10 @@ texture_hover = ExtResource("13_t0fna")
 
 [node name="Level2Button" type="TextureButton" parent="Buttons"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 509.0
-offset_top = 669.0
-offset_right = 709.0
-offset_bottom = 869.0
-rotation = 0.0349066
+offset_left = 850.0
+offset_top = 700.0
+offset_right = 1050.0
+offset_bottom = 900.0
 disabled = true
 texture_normal = ExtResource("14_b8ijr")
 texture_pressed = ExtResource("15_3f0dd")
@@ -695,27 +642,14 @@ texture_hover = ExtResource("16_al2hv")
 
 [node name="Level3Button" type="TextureButton" parent="Buttons"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 932.0
-offset_top = 780.0
-offset_right = 1132.0
-offset_bottom = 980.0
-rotation = -0.0523599
+offset_left = 1370.0
+offset_top = 700.0
+offset_right = 1570.0
+offset_bottom = 900.0
 disabled = true
 texture_normal = ExtResource("17_wvqw8")
 texture_pressed = ExtResource("18_grtag")
 texture_hover = ExtResource("19_73p72")
-
-[node name="Level4Button" type="TextureButton" parent="Buttons"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 1383.0
-offset_top = 705.0
-offset_right = 1583.0
-offset_bottom = 905.0
-rotation = 0.122173
-disabled = true
-texture_normal = ExtResource("20_gchvl")
-texture_pressed = ExtResource("21_mdd55")
-texture_hover = ExtResource("22_ahb3v")
 
 [connection signal="animation_finished" from="Animation/MenuAnimation" to="." method="_on_menu_animation_animation_finished"]
 [connection signal="animation_finished" from="Animation/LogoAnimation" to="." method="_on_logo_animation_animation_finished"]
@@ -729,5 +663,3 @@ texture_hover = ExtResource("22_ahb3v")
 [connection signal="pressed" from="Buttons/Level2Button" to="." method="_on_level_2_button_pressed"]
 [connection signal="mouse_entered" from="Buttons/Level3Button" to="." method="_on_level_3_button_mouse_entered"]
 [connection signal="pressed" from="Buttons/Level3Button" to="." method="_on_level_3_button_pressed"]
-[connection signal="mouse_entered" from="Buttons/Level4Button" to="." method="_on_level_4_button_mouse_entered"]
-[connection signal="pressed" from="Buttons/Level4Button" to="." method="_on_level_4_button_pressed"]
