@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chau7orh4vnwt"]
+[gd_scene load_steps=14 format=3 uid="uid://chau7orh4vnwt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_0.gd" id="1_d56su"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="1_fa4gj"]
@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="8_b47y4"]
 [ext_resource type="PackedScene" uid="uid://ci7qb7t4ewfwe" path="res://scenes/components/level_objects/stone_block.tscn" id="8_j6whi"]
 [ext_resource type="PackedScene" uid="uid://cxyifp4hqr5gd" path="res://scenes/components/level_objects/pulley/pulley.tscn" id="9_b0ibr"]
-[ext_resource type="PackedScene" uid="uid://3hyava6scvjk" path="res://scenes/components/level_objects/box.tscn" id="10_2mtjn"]
+[ext_resource type="PackedScene" uid="uid://c86ojc1x7rgo7" path="res://scenes/components/level_objects/box.tscn" id="10_2mtjn"]
 [ext_resource type="PackedScene" uid="uid://b7a4phf2gpk0d" path="res://scenes/components/level_objects/boulder.tscn" id="10_byuq6"]
-[ext_resource type="PackedScene" uid="uid://do48hpugukpip" path="res://scenes/components/level_objects/crate.tscn" id="11_pggbj"]
+[ext_resource type="PackedScene" uid="uid://b4460n8qg8rrg" path="res://scenes/components/level_objects/crate.tscn" id="11_pggbj"]
+[ext_resource type="PackedScene" uid="uid://dd3p8w7gi5pww" path="res://scenes/components/backgrounds/level_0_bg.tscn" id="13_abn3j"]
+[ext_resource type="PackedScene" uid="uid://bkxle7ugfj4fa" path="res://scenes/components/backgrounds/level_0_fg.tscn" id="13_onute"]
 
 [node name="Level_0" type="Node2D"]
 script = ExtResource("1_d56su")
@@ -57,3 +59,8 @@ position = Vector2(760, -500)
 
 [node name="Crate" parent="Props" instance=ExtResource("11_pggbj")]
 position = Vector2(2120, -528)
+
+[node name="GraveyardForeground" parent="." instance=ExtResource("13_onute")]
+
+[node name="GraveyardBackground" parent="." instance=ExtResource("13_abn3j")]
+scroll_ignore_camera_zoom = true

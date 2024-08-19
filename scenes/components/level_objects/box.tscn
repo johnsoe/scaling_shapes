@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3hyava6scvjk"]
+[gd_scene load_steps=9 format=3 uid="uid://c86ojc1x7rgo7"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_vmwbb"]
 [ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_co7u2"]

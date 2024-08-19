@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://77rae7bcu0l5"]
+[gd_scene load_steps=7 format=3 uid="uid://dd3p8w7gi5pww"]
 
 [ext_resource type="Texture2D" uid="uid://cruc4ldifpndn" path="res://assets/textures/backgrounds/graveyard/gy_bg_0.png" id="1_pbops"]
 [ext_resource type="Texture2D" uid="uid://dkvkrvafhxccg" path="res://assets/textures/backgrounds/graveyard/gy_bg_1.png" id="2_m75b5"]
@@ -9,22 +9,18 @@
 
 [node name="GraveyardBackground" type="ParallaxBackground"]
 scroll_limit_end = Vector2(0, 1300)
-scroll_ignore_camera_zoom = true
 
-[node name="DistantBackground" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="DistantBackground"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pbops")
 centered = false
 
 [node name="FarBackground" type="ParallaxLayer" parent="."]
-scale = Vector2(1.5, 1.5)
+position = Vector2(2.08165e-12, 2.08165e-12)
 motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(3840, 0)
+motion_mirroring = Vector2(5760, 0.001)
 
 [node name="Sprite2D" type="Sprite2D" parent="FarBackground"]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_m75b5")
 centered = false
 
@@ -40,6 +36,7 @@ centered = false
 
 [node name="GroundBackground" type="ParallaxLayer" parent="."]
 position = Vector2(0, 300)
+motion_scale = Vector2(0.45, 0.45)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="GroundBackground"]
@@ -48,6 +45,7 @@ centered = false
 
 [node name="AccessoriesBackground" type="ParallaxLayer" parent="."]
 position = Vector2(1920, 300)
+motion_scale = Vector2(0.45, 0.45)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="AccessoriesBackground"]
@@ -56,19 +54,10 @@ centered = false
 
 [node name="AccessoriesBackground2" type="ParallaxLayer" parent="."]
 position = Vector2(0, 1000)
+motion_scale = Vector2(0.45, 0.45)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="AccessoriesBackground2"]
 position = Vector2(21.4286, -647.143)
-texture = ExtResource("6_5atxc")
-centered = false
-
-[node name="Foreground" type="ParallaxLayer" parent="."]
-visible = false
-z_index = 1
-motion_scale = Vector2(2, 2)
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Foreground"]
 texture = ExtResource("6_5atxc")
 centered = false
