@@ -33,6 +33,7 @@ var flavor_text_map: Dictionary = {
 ####################################################################################################
 var next_song: String
 var next_scene: String
+var reload_scene: bool
 
 
 ####################################################################################################
@@ -54,8 +55,6 @@ func get_remaining_transition_time() -> float:
 
 
 func transition_to_level(caller_size: Vector2, box_position: Vector2, target_level: String):
-
-	# Set transition box transform
 	black_box.set_position(box_position + caller_size / 2 - black_box.size / 2)
 
 	# Set variables for transition
@@ -69,8 +68,7 @@ func transition_to_level(caller_size: Vector2, box_position: Vector2, target_lev
 
 
 func reload_current_level(caller_size: Vector2, box_position: Vector2):
-
-	# Set transition box transform
+	reload_scene = true
 	black_box.set_position(box_position + caller_size / 2 - black_box.size / 2)
 
 	# Fade out current scene
@@ -89,10 +87,15 @@ func _on_animation_player_animation_finished(anim_name):
 			if get_tree().paused:
 				get_tree().paused = false
 
-			# Load next scene
+			# Load next song
 			if not next_song.is_empty():
 				MusicController.load_song(next_song)
-			if not next_scene.is_empty():
+
+			# Load next scene
+			if reload_scene:
+				get_tree().reload_current_scene()
+				reload_scene = false
+			elif not next_scene.is_empty():
 				get_tree().change_scene_to_file(next_scene)
 
 			# Fade in new scene
