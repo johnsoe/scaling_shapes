@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c86ojc1x7rgo7"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_vmwbb"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_co7u2"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_co7u2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2boxo"]
 atlas = ExtResource("1_vmwbb")
@@ -58,6 +58,7 @@ animations = [{
 size = Vector2(153, 111)
 
 [node name="Box" type="RigidBody2D" groups=["habitable_objects"]]
+can_sleep = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xkihp")

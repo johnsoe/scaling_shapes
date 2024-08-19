@@ -37,6 +37,8 @@ radius = 94.34
 z_index = 2
 collision_layer = 128
 script = ExtResource("1_xum83")
+jump_speed = -850
+gravity_scale = 2.4
 
 [node name="ScalingManager" type="Node" parent="."]
 script = ExtResource("3_npv27")
@@ -49,6 +51,7 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.65, 0.65)
 limit_bottom = 0
+drag_vertical_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_myrbi")

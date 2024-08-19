@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal inhabit_node(node: RigidBody2D)
 signal uninhabit_node()
-@export var speed: int = 400
-@export var jump_speed: int = -400
+@export var speed: int = 500
+@export var jump_speed: int = -1000
 @export var gravity_scale: float = 1.5
 @export var push_force: float = 20
 
@@ -61,7 +61,7 @@ func _physics_process(delta):
 		return
 
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += gravity * gravity_scale * delta
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() || !coyote_timer.is_stopped()):
 		SFXController.play_jump()
