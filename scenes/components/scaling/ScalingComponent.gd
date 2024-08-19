@@ -6,6 +6,7 @@ extends Node
 @export var rb_2d: RigidBody2D
 @export var collision_2d: CollisionShape2D
 @export var animated_sprite: AnimatedSprite2D
+@export var border_sprite: Sprite2D
 
 var is_inhabited: bool     = false
 var current_scaling: float = 0.0
@@ -20,6 +21,8 @@ func _ready():
 	Events.scale_pause.connect(on_scale_pause)
 	Events.node_inhabited.connect(on_node_inhabited)
 	Events.node_uninhabited.connect(on_node_uninhabited)
+	Events.node_selected.connect(on_node_selected)
+	Events.node_unselected.connect(on_node_unselected)
 	if animated_sprite != null:
 		animated_sprite.play("default")
 
@@ -80,3 +83,15 @@ func on_node_uninhabited(node: RigidBody2D):
 	if (rb_2d == node):
 		animated_sprite.play("default")
 		is_inhabited = false
+
+
+func on_node_selected(node: RigidBody2D):
+	if border_sprite != null:
+		border_sprite.visible = rb_2d == node
+
+
+func on_node_unselected(node: RigidBody2D):
+	print("unselected")
+	if (rb_2d == node) and border_sprite != null:
+		print("unselected 2")
+		border_sprite.visible = false

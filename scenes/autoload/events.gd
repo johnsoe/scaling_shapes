@@ -5,6 +5,8 @@ signal scale_down(node: RigidBody2D)
 signal scale_pause(node: RigidBody2D)
 signal node_inhabited(node: RigidBody2D)
 signal node_uninhabited(node: RigidBody2D)
+signal node_selected(node: RigidBody2D)
+signal node_unselected(node: RigidBody2D)
 
 
 func emit_scale_up(node: RigidBody2D):
@@ -25,3 +27,11 @@ func emit_node_inhabited(node: RigidBody2D):
 
 func emit_node_uninhabited(node: RigidBody2D):
 	node_uninhabited.emit(node)
+	
+
+func emit_node_selected(node: RigidBody2D):
+	node_selected.emit(node)
+	
+
+func emit_node_unselected(node: RigidBody2D):
+	node_unselected.emit(node)

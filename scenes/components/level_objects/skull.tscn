@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp0v45ivh8jn5"]
+[gd_scene load_steps=10 format=3 uid="uid://bp0v45ivh8jn5"]
 
+[ext_resource type="Texture2D" uid="uid://clfwkgyokmke1" path="res://assets/sprites/spriteSheet_2.png" id="2_ebubj"]
 [ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_p364r"]
 [ext_resource type="Texture2D" uid="uid://buwuwxnbkiwyu" path="res://assets/sprites/spriteSheet.png" id="3_bjvsq"]
 
@@ -64,11 +65,19 @@ can_sleep = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epmak")
 
+[node name="Border" type="Sprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("2_ebubj")
+region_enabled = true
+region_rect = Rect2(1496, 10, 104, 110)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_vsg6w")
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_p364r")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite", "border_sprite") instance=ExtResource("2_p364r")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
+border_sprite = NodePath("../AnimatedSprite2D/Border")

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bib4ncnexijkb"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cgicqkse3trv5"]
 
 [ext_resource type="Texture2D" uid="uid://csexgjfq4oogm" path="res://assets/textures/sprites/sewer_platform_sprite.png" id="1_ljd3r"]
 [ext_resource type="Texture2D" uid="uid://cc5qhcodeti7p" path="res://assets/textures/sprites/gy_platform_sprite.png" id="2_nepf3"]

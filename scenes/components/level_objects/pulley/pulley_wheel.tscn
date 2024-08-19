@@ -11,7 +11,17 @@ texture = ExtResource("1_xcj8i")
 region_enabled = true
 region_rect = Rect2(288, 3, 121, 122)
 
-[node name="Rope" type="Sprite2D" parent="Visuals"]
+[node name="Control" type="Control" parent="Visuals"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -150.0
+offset_top = -131.0
+offset_right = 26.0
+offset_bottom = 16.0
+
+[node name="Rope" type="Sprite2D" parent="Visuals/Control"]
+position = Vector2(150, 131)
 texture = ExtResource("1_xcj8i")
 region_enabled = true
 region_rect = Rect2(282, 128, 133, 130)
