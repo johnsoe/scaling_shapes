@@ -6,6 +6,7 @@ signal uninhabit_node()
 @export var jump_speed: int = -1000
 @export var gravity_scale: float = 1.5
 @export var push_force: float = 20
+@export var uninhabit_offset: Vector2 = Vector2(0, -100)
 
 @onready var scaling_manager: ScalingManager = $ScalingManager
 @onready var collision2d: CollisionShape2D = $CollisionShape2D
@@ -50,14 +51,7 @@ func _input(event):
 
 func _physics_process(delta):
 	if scaling_manager.is_inhabited():
-		var rb2d: RigidBody2D = scaling_manager.inhabited_node
-		if area2d.overlaps_body(rb2d):
-			velocity.y = jump_speed
-		else:
-			velocity.y = 0
-
-		velocity.x = 0
-		move_and_slide()
+		position = scaling_manager.inhabited_node.position
 		return
 
 	if not is_on_floor():
@@ -78,7 +72,7 @@ func _physics_process(delta):
 
 	if not was_on_floor and is_on_floor():
 		SFXController.play_jump_land()
-	
+
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		if collision.get_collider() is RigidBody2D:
@@ -109,8 +103,7 @@ func get_input():
 
 func on_inhabit():
 	SFXController.play_ghost_enter()
-	collision2d.set_deferred("disabled", true)
-	hide()
+	visible = false
 	inhabit_node.emit(nearbyObjects.back())
 
 	if not TutorialController.tutorial_complete:
@@ -119,8 +112,8 @@ func on_inhabit():
 
 func on_uninhabit():
 	SFXController.play_ghost_exit()
-	collision2d.set_deferred("disabled", false)
-	show()
+	position = scaling_manager.inhabited_node.position + uninhabit_offset
+	visible = true
 	uninhabit_node.emit()
 
 	if not TutorialController.tutorial_complete:

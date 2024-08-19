@@ -4,6 +4,7 @@ const GOAL_BOX_POSITION: Vector2 = Vector2(960, 540)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var label: Label = $Label
 
+
 ####################################################################################################
 # Built-In Functions                                                                               #
 ####################################################################################################
@@ -15,13 +16,12 @@ func _ready():
 # Level Goal Signals                                                                               #
 ####################################################################################################
 func _on_body_entered(body):
-	if body.name == "PlayerNode":
+	if body.name == "PlayerNode" and body.visible:
 		SFXController.play_level_complete()
 		body.visible = false
 		label.visible = false
 		get_tree().paused = true
 		animated_sprite_2d.play("level complete")
-		
 
 
 func _on_animated_sprite_2d_animation_finished():
