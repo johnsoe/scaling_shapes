@@ -1,7 +1,7 @@
 extends Area2D
 
 const DEATH_BOX_SIZE: Vector2     = Vector2(200, 200)
-const DEATH_BOX_POSITION: Vector2 = Vector2(1920 / 2, 1080 + 200)
+const DEATH_BOX_POSITION: Vector2 = Vector2(960, 1280)
 const DEATH_BOX_ROTATION: float   = 0
 
 

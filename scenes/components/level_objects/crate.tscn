@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://do48hpugukpip"]
 
 [ext_resource type="Texture2D" uid="uid://clfwkgyokmke1" path="res://assets/sprites/spriteSheet_2.png" id="1_yqh74"]
-[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_4v0dp"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_4v0dp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgh8i"]
 atlas = ExtResource("1_yqh74")
@@ -13,7 +13,7 @@ region = Rect2(1457, 499, 143, 115)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctbwa"]
 atlas = ExtResource("1_yqh74")
-region = Rect2(1312, 500, 143, 115)
+region = Rect2(1314, 500, 143, 115)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvnrw"]
 atlas = ExtResource("1_yqh74")

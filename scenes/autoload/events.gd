@@ -17,11 +17,11 @@ func emit_scale_down(node: RigidBody2D):
 
 func emit_scale_pause(node: RigidBody2D):
 	scale_pause.emit(node)
-	
+
 
 func emit_node_inhabited(node: RigidBody2D):
 	node_inhabited.emit(node)
-	
+
 
 func emit_node_uninhabited(node: RigidBody2D):
 	node_uninhabited.emit(node)
