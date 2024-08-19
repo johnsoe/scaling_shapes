@@ -44,6 +44,7 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 		else:
 			velocity.y = 0
+
 		velocity.x = 0
 		move_and_slide()
 		return
@@ -52,6 +53,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() || !coyote_timer.is_stopped()):
+		SFXController.play_jump()
 		velocity.y = jump_speed
 
 	var was_on_floor: bool = is_on_floor()
@@ -59,6 +61,9 @@ func _physics_process(delta):
 	move_and_slide()
 	if was_on_floor and !is_on_floor():
 		coyote_timer.start()
+
+	if not was_on_floor and is_on_floor():
+		SFXController.play_jump_land()
 
 
 # Area entered signal from area2d
@@ -74,12 +79,14 @@ func _on_area_2d_body_exited(body: Node2D):
 
 
 func on_inhabit():
+	SFXController.play_ghost_enter()
 	collision2d.set_deferred("disabled", true)
 	hide()
 	inhabit_node.emit(nearbyObjects.back())
 
 
 func on_uninhabit():
+	SFXController.play_ghost_exit()
 	collision2d.set_deferred("disabled", false)
 	show()
 	uninhabit_node.emit()

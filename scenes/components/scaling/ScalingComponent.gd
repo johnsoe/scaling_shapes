@@ -29,6 +29,12 @@ func _physics_process(_delta):
 		clamp(animated_sprite.scale.x + current_scaling, scale_min, scale_max),
 		clamp(animated_sprite.scale.y + current_scaling, scale_min, scale_max),
 	)
+  
+  if animated_sprite.scale > updated_scale and not SFXController.is_scale_sfx_playing():
+		SFXController.play_scale_down()
+	elif animated_sprite.scale < updated_scale and not SFXController.is_scale_sfx_playing():
+		SFXController.play_scale_up()
+  
 	rb_2d.mass = updated_scale.x
 	collision_2d.scale = updated_scale
 	animated_sprite.scale = updated_scale
