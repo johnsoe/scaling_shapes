@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="scaling_shapes"
+config/name="Cheek-A-Boo"
+config/version="1.0"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://assets/icon.png"
 
 [autoload]
 
@@ -32,6 +36,11 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="scaling_shapes"
+
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
 
 [input]
 

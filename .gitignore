@@ -3,3 +3,9 @@
 
 .idea
 .DS_Store
+
+# Export outputs
+build/*.exe
+build/*.x86_64
+build/*.zip
+build/*.pck
