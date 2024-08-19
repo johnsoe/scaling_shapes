@@ -25,12 +25,16 @@ func on_scale_down(node: RigidBody2D):
 
 
 func scale_helper(delta):
-
 	var updated_scale: Vector2 = Vector2(
 									 clamp(sprite_2d.scale.x + delta, scale_min, scale_max),
 									 clamp(sprite_2d.scale.y + delta, scale_min, scale_max),
 								 )
+
+	if sprite_2d.scale > updated_scale and not SFXController.is_scale_sfx_playing():
+		SFXController.play_scale_down()
+	elif sprite_2d.scale < updated_scale and not SFXController.is_scale_sfx_playing():
+		SFXController.play_scale_up()
+
 	rb_2d.mass = updated_scale.x
-	print(rb_2d.mass)
 	collision_2d.scale = updated_scale
 	sprite_2d.scale = updated_scale

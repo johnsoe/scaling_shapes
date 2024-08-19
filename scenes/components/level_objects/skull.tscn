@@ -20,7 +20,6 @@ position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_vsg6w")
 
 [node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "sprite_2d") instance=ExtResource("2_p364r")]
-scale_max = 10.0
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 sprite_2d = NodePath("../Sprite2D")

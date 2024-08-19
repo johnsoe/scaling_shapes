@@ -19,7 +19,6 @@ region_rect = Rect2(689.5, 2.5, 114, 113)
 shape = SubResource("RectangleShape2D_1wsf2")
 
 [node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "sprite_2d") instance=ExtResource("2_7h1mt")]
-scale_max = 10.0
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 sprite_2d = NodePath("../Sprite2D")
