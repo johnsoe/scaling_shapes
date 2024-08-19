@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/levels/level_0.gd" id="1_d56su"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="1_fa4gj"]
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_qvnr0"]
-[ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://scenes/levels/sewer_platform_tileset.tres" id="5_7l4hl"]
+[ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="5_7l4hl"]
 [ext_resource type="PackedScene" uid="uid://bp0v45ivh8jn5" path="res://scenes/components/level_objects/skull.tscn" id="7_oy0ym"]
 [ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="8_b47y4"]
 [ext_resource type="PackedScene" uid="uid://ci7qb7t4ewfwe" path="res://scenes/components/level_objects/stone_block.tscn" id="8_j6whi"]
@@ -21,7 +21,6 @@ script = ExtResource("1_d56su")
 position = Vector2(499, -548)
 
 [node name="DeathPlane" parent="." instance=ExtResource("8_b47y4")]
-position = Vector2(-205, 1727)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_7l4hl")

@@ -1,7 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://r4804veh7o4m"]
+[gd_scene load_steps=5 format=3 uid="uid://r4804veh7o4m"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_htqwb"]
+[ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_gxems"]
+[ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="3_0f0je"]
+[ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_o8tot"]
 
 [node name="Cave" type="Node2D"]
 
 [node name="HudOverlay" parent="." instance=ExtResource("1_htqwb")]
+
+[node name="PlayerNode" parent="." instance=ExtResource("2_gxems")]
+position = Vector2(429, -255)
+
+[node name="DeathPlane" parent="." instance=ExtResource("3_0f0je")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("4_o8tot")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131068, 196609, 4, -131067, 196609, 4, -131066, 196609, 4, -131065, 196609, 4, -131064, 196609, 4, -131063, 196609, 4, -131062, 196609, 4, -131061, 196609, 4, -131060, 262145, 4, -131069, 131073, 4, -196605, 131073, 3, -196596, 262145, 3)
