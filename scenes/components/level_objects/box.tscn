@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://3hyava6scvjk"]
+
+[ext_resource type="Texture2D" uid="uid://clfwkgyokmke1" path="res://assets/sprites/spriteSheet_2.png" id="1_vmwbb"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_co7u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2boxo"]
+atlas = ExtResource("1_vmwbb")
+region = Rect2(832, 0, 194, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjlrj"]
+atlas = ExtResource("1_vmwbb")
+region = Rect2(822, 396, 203, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwt7u"]
+atlas = ExtResource("1_vmwbb")
+region = Rect2(822, 263, 203, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hfxl"]
+atlas = ExtResource("1_vmwbb")
+region = Rect2(822, 132, 203, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkihp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2boxo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjlrj")
+}],
+"loop": true,
+"name": &"deflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwt7u")
+}],
+"loop": true,
+"name": &"inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hfxl")
+}],
+"loop": false,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4prtt"]
+size = Vector2(153, 111)
+
+[node name="Box" type="RigidBody2D" groups=["habitable_objects"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xkihp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_4prtt")
+
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_co7u2")]
+scale_max = 3.0
+rb_2d = NodePath("..")
+collision_2d = NodePath("../CollisionShape2D")
+animated_sprite = NodePath("../AnimatedSprite2D")

@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://chau7orh4vnwt"]
+[gd_scene load_steps=14 format=3 uid="uid://chau7orh4vnwt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_0.gd" id="1_d56su"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="1_fa4gj"]
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_qvnr0"]
-[ext_resource type="PackedScene" uid="uid://c8crc1k14rsjb" path="res://scenes/components/level_objects/skull.tscn" id="7_oy0ym"]
+[ext_resource type="PackedScene" uid="uid://bp0v45ivh8jn5" path="res://scenes/components/level_objects/skull.tscn" id="7_oy0ym"]
 [ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="8_b47y4"]
-[ext_resource type="PackedScene" uid="uid://bllpf6wtqaxmu" path="res://scenes/components/level_objects/stone_block.tscn" id="8_j6whi"]
+[ext_resource type="PackedScene" uid="uid://ci7qb7t4ewfwe" path="res://scenes/components/level_objects/stone_block.tscn" id="8_j6whi"]
 [ext_resource type="PackedScene" uid="uid://cxyifp4hqr5gd" path="res://scenes/components/level_objects/pulley/pulley.tscn" id="9_b0ibr"]
+[ext_resource type="PackedScene" uid="uid://3hyava6scvjk" path="res://scenes/components/level_objects/box.tscn" id="10_2mtjn"]
+[ext_resource type="PackedScene" uid="uid://b7a4phf2gpk0d" path="res://scenes/components/level_objects/boulder.tscn" id="10_byuq6"]
+[ext_resource type="PackedScene" uid="uid://do48hpugukpip" path="res://scenes/components/level_objects/crate.tscn" id="11_pggbj"]
 [ext_resource type="Texture2D" uid="uid://cc5qhcodeti7p" path="res://assets/textures/sprites/gy_platform_sprite.png" id="11_ukj6d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afl1a"]
@@ -154,7 +157,7 @@ layer_0/tile_data = PackedInt32Array(-458739, 327681, 1, -524275, 327681, 0, -52
 
 [node name="Pulley" parent="Props" instance=ExtResource("9_b0ibr")]
 position = Vector2(1399, -509)
-move_speed = 0.75
+move_speed = 2.5
 max_offset = 200.0
 
 [node name="Skull" parent="Props" instance=ExtResource("7_oy0ym")]
@@ -162,9 +165,6 @@ position = Vector2(1742, -602)
 
 [node name="Skull2" parent="Props" instance=ExtResource("7_oy0ym")]
 position = Vector2(145, -507)
-
-[node name="StoneBlock" parent="Props" instance=ExtResource("8_j6whi")]
-position = Vector2(1069, -612)
 
 [node name="StoneBlock2" parent="Props" instance=ExtResource("8_j6whi")]
 position = Vector2(2658, -514)
@@ -174,3 +174,12 @@ position = Vector2(2670, -628)
 
 [node name="StoneBlock4" parent="Props" instance=ExtResource("8_j6whi")]
 position = Vector2(2482, -516)
+
+[node name="Box" parent="Props" instance=ExtResource("10_2mtjn")]
+position = Vector2(1058, -618)
+
+[node name="Boulder" parent="Props" instance=ExtResource("10_byuq6")]
+position = Vector2(760, -500)
+
+[node name="Crate" parent="Props" instance=ExtResource("11_pggbj")]
+position = Vector2(2120, -528)
