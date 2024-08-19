@@ -5,7 +5,6 @@ extends Control
 @onready var level_1_button: TextureButton = $Buttons/Level1Button
 @onready var level_2_button: TextureButton = $Buttons/Level2Button
 @onready var level_3_button: TextureButton = $Buttons/Level3Button
-@onready var level_4_button: TextureButton = $Buttons/Level4Button
 
 var window_size: Vector2i
 var window_position: Vector2i
@@ -47,17 +46,10 @@ func transition_to_level(level_button: TextureButton):
 		target_level = "level_2"
 	elif level_button == level_3_button:
 		target_level = "level_3"
-	elif level_button == level_4_button:
-		target_level = "level_4"
 
 	buttons_active = false
 	SFXController.play_click_button()
-	TransitionController.transition_to_level(
-		level_button.size,
-		level_button.position,
-		level_button.rotation_degrees,
-		target_level
-	)
+	TransitionController.transition_to_level(level_button.size, level_button.position, target_level)
 
 
 ####################################################################################################
@@ -113,10 +105,6 @@ func _on_level_3_button_pressed():
 	transition_to_level(level_3_button)
 
 
-func _on_level_4_button_pressed():
-	transition_to_level(level_4_button)
-
-
 ####################################################################################################
 # Button Hover Signals                                                                             #
 ####################################################################################################
@@ -139,6 +127,3 @@ func _on_level_2_button_mouse_entered():
 func _on_level_3_button_mouse_entered():
 	button_hover_shared()
 
-
-func _on_level_4_button_mouse_entered():
-	button_hover_shared()
