@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://f2fpu1hg12ga" path="res://assets/textures/backgrounds/graveyard/gy_fg.png" id="1_jqsk2"]
 
 [node name="GraveyardForeground" type="ParallaxBackground"]
-layer = 100
+layer = 2
 scroll_ignore_camera_zoom = true
 
 [node name="ForegroundLayer" type="ParallaxLayer" parent="."]

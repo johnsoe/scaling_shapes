@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bsbfmg41qycs" path="res://assets/textures/buttons/pause_menu_restart_hover.png" id="11_vkh8l"]
 
 [node name="HudOverlay" type="CanvasLayer"]
+layer = 50
 script = ExtResource("1_bwaou")
 
 [node name="Constraints" type="Control" parent="."]
