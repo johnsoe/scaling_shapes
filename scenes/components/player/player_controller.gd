@@ -4,6 +4,8 @@ signal inhabit_node(node: RigidBody2D)
 signal uninhabit_node()
 @export var speed: int = 400
 @export var jump_speed: int = -400
+@export var gravity_scale: float = 1.5
+@export var push_force: float = 20
 
 @onready var scaling_manager: ScalingManager = $ScalingManager
 @onready var collision2d: CollisionShape2D = $CollisionShape2D
@@ -76,6 +78,12 @@ func _physics_process(delta):
 
 	if not was_on_floor and is_on_floor():
 		SFXController.play_jump_land()
+	
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		if collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
+		
 
 
 ####################################################################################################
