@@ -21,6 +21,7 @@ Events="*res://scenes/autoload/events.gd"
 MusicController="*res://scenes/autoload/music_controller.tscn"
 SFXController="*res://scenes/autoload/sfx_controller.tscn"
 TransitionController="*res://scenes/autoload/transition_controller.tscn"
+TutorialController="*res://scenes/autoload/TutorialController.tscn"
 
 [display]
 
