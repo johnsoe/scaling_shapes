@@ -8,7 +8,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-func load_song(target_song):
+func load_song(target_song: String):
 	music_player.playing = false
 	music_player.stream = load("res://assets/music/%s.ogg" % target_song)
 

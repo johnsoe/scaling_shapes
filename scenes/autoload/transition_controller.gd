@@ -56,7 +56,7 @@ func get_remaining_transition_time() -> float:
 	return animation_player.current_animation_length - animation_player.current_animation_position
 
 
-func transition_to_level(box_size, box_position, box_rotation, target_level):
+func transition_to_level(box_size: Vector2, box_position: Vector2, box_rotation: float, target_level: String):
 
 	# Set transition box transform
 	black_box.size = box_size
@@ -73,7 +73,7 @@ func transition_to_level(box_size, box_position, box_rotation, target_level):
 	animation_player.play("Fade Out Scene")
 
 
-func reload_current_level(box_size, box_position, box_rotation):
+func reload_current_level(box_size: Vector2, box_position: Vector2, box_rotation: float):
 
 	# Set transition box transform
 	black_box.size = box_size
