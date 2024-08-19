@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://0yqbnvklhx3c"]
+[gd_scene load_steps=7 format=3 uid="uid://0yqbnvklhx3c"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_4k667"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_wv6yu"]
 [ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="3_1rbbe"]
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_1qhwb"]
+[ext_resource type="PackedScene" uid="uid://dfvicpes672m1" path="res://scenes/components/backgrounds/sewer_bg.tscn" id="5_8t0bf"]
+[ext_resource type="PackedScene" uid="uid://vhvscrfr5ebi" path="res://scenes/components/backgrounds/sewer_fg.tscn" id="6_d5al3"]
 
 [node name="Sewer" type="Node2D"]
 
@@ -20,3 +22,8 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-262144, 0, 0, -196608, 0, 1, -262143, 65536, 0, -196607, 65536, 1, -262142, 131072, 0, -196606, 131072, 1, -262141, 196608, 0, -196605, 196608, 1, -196604, 131072, 1, -196603, 196608, 1, -196602, 131072, 1, -196601, 196608, 1, -262136, 262144, 0, -196600, 262144, 1, -262135, 327680, 0, -196599, 327680, 1, -131063, 327680, 2, -131072, 0, 2, -262139, 262144, 2)
 
 [node name="Props" type="Node" parent="."]
+
+[node name="SewerBackground" parent="." instance=ExtResource("5_8t0bf")]
+
+[node name="SewerForeground" parent="." instance=ExtResource("6_d5al3")]
+layer = 100
