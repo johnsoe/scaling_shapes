@@ -13,6 +13,29 @@ signal uninhabit_node()
 
 var nearbyObjects: Array[Variant] = []
 var gravity                       = ProjectSettings.get_setting("physics/2d/default_gravity")
+var player_has_moved_left: bool   = false
+var player_has_moved_right: bool  = false
+var player_has_inhabit: bool      = false
+var player_has_uninhabit: bool    = false
+
+
+####################################################################################################
+# Built-In Functions                                                                               #
+####################################################################################################
+func _ready():
+	if not TutorialController.tutorial_complete:
+		TutorialController.start_tutorial()
+
+
+func _process(_delta):
+	if not TutorialController.tutorial_complete:
+		TutorialController.set_tutorial_position(position)
+
+		if player_has_moved_left and player_has_moved_right:
+			TutorialController.complete_step_move()
+
+		if player_has_inhabit and player_has_uninhabit:
+			TutorialController.complete_step_possess()
 
 
 func _input(event):
@@ -21,20 +44,6 @@ func _input(event):
 			on_uninhabit()
 		elif not nearbyObjects.is_empty():
 			on_inhabit()
-
-
-func get_input():
-	var input_direction: float = Input.get_axis("left", "right")
-
-	if input_direction > 0:
-		animated_sprite.flip_h = false
-	elif input_direction < 0:
-		animated_sprite.flip_h = true
-
-	if input_direction:
-		velocity.x = input_direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
 
 
 func _physics_process(delta):
@@ -56,6 +65,9 @@ func _physics_process(delta):
 		SFXController.play_jump()
 		velocity.y = jump_speed
 
+		if not TutorialController.tutorial_complete:
+			TutorialController.complete_step_jump()
+
 	var was_on_floor: bool = is_on_floor()
 	get_input()
 	move_and_slide()
@@ -66,6 +78,51 @@ func _physics_process(delta):
 		SFXController.play_jump_land()
 
 
+####################################################################################################
+# Input Functions                                                                                  #
+####################################################################################################
+func get_input():
+	var input_direction: float = Input.get_axis("left", "right")
+
+	if input_direction > 0:
+		animated_sprite.flip_h = false
+		if not TutorialController.tutorial_complete:
+			player_has_moved_left = true
+
+	elif input_direction < 0:
+		animated_sprite.flip_h = true
+		if not TutorialController.tutorial_complete:
+			player_has_moved_right = true
+
+	if input_direction:
+		velocity.x = input_direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+
+
+func on_inhabit():
+	SFXController.play_ghost_enter()
+	collision2d.set_deferred("disabled", true)
+	hide()
+	inhabit_node.emit(nearbyObjects.back())
+
+	if not TutorialController.tutorial_complete:
+		player_has_inhabit = true
+
+
+func on_uninhabit():
+	SFXController.play_ghost_exit()
+	collision2d.set_deferred("disabled", false)
+	show()
+	uninhabit_node.emit()
+
+	if not TutorialController.tutorial_complete:
+		player_has_uninhabit = true
+
+
+####################################################################################################
+# Collision Signals                                                                                #
+####################################################################################################
 # Area entered signal from area2d
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("habitable_objects") and not nearbyObjects.has(body) and body is RigidBody2D:
@@ -76,17 +133,3 @@ func _on_area_2d_body_entered(body: Node2D):
 func _on_area_2d_body_exited(body: Node2D):
 	if body.is_in_group("habitable_objects") and nearbyObjects.has(body):
 		nearbyObjects.erase(body)
-
-
-func on_inhabit():
-	SFXController.play_ghost_enter()
-	collision2d.set_deferred("disabled", true)
-	hide()
-	inhabit_node.emit(nearbyObjects.back())
-
-
-func on_uninhabit():
-	SFXController.play_ghost_exit()
-	collision2d.set_deferred("disabled", false)
-	show()
-	uninhabit_node.emit()

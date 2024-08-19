@@ -85,6 +85,9 @@ func reload_current_level(box_size: Vector2, box_position: Vector2, box_rotation
 	animation_player.play("Fade Out Scene")
 
 
+####################################################################################################
+# Animation Signals                                                                                #
+####################################################################################################
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Fade Out Scene":
 		if next_scene != null:

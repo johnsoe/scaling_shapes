@@ -7,10 +7,13 @@ extends Node
 @export var collision_2d: CollisionShape2D
 @export var animated_sprite: AnimatedSprite2D
 
-var is_inhabited    = false
-var current_scaling = 0.0
+var is_inhabited: bool     = false
+var current_scaling: float = 0.0
 
 
+####################################################################################################
+# Built-In Functions                                                                               #
+####################################################################################################
 func _ready():
 	Events.scale_up.connect(on_scale_up)
 	Events.scale_down.connect(on_scale_down)
@@ -40,16 +43,25 @@ func _physics_process(_delta):
 	animated_sprite.scale = updated_scale
 
 
+####################################################################################################
+# Scaling Functions                                                                                #
+####################################################################################################
 func on_scale_up(node: RigidBody2D):
 	if (rb_2d == node):
 		animated_sprite.play("inflate")
 		current_scaling = scale_increment
+
+		if not TutorialController.tutorial_complete:
+			TutorialController.complete_step_scale_up()
 
 
 func on_scale_down(node: RigidBody2D):
 	if (rb_2d == node):
 		animated_sprite.play("deflate")
 		current_scaling = scale_increment * -1
+
+		if not TutorialController.tutorial_complete:
+			TutorialController.complete_step_scale_down()
 
 
 func on_scale_pause(node: RigidBody2D):
