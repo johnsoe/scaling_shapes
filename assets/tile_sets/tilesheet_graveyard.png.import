@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clfwkgyokmke1"
-path="res://.godot/imported/spriteSheet_2.png-aa0aaa003ea05e2a33280d05aa13c6d1.ctex"
+uid="uid://cc5qhcodeti7p"
+path="res://.godot/imported/tilesheet_graveyard.png-fdc5590131b3b4a78a4f715e8f9ffc35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/spriteSheet_2.png"
-dest_files=["res://.godot/imported/spriteSheet_2.png-aa0aaa003ea05e2a33280d05aa13c6d1.ctex"]
+source_file="res://assets/tile_sets/tilesheet_graveyard.png"
+dest_files=["res://.godot/imported/tilesheet_graveyard.png-fdc5590131b3b4a78a4f715e8f9ffc35.ctex"]
 
 [params]
 

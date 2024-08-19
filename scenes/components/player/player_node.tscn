@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://16qibkk2s8nj"]
 
 [ext_resource type="Script" path="res://scenes/components/player/player_controller.gd" id="1_xum83"]
-[ext_resource type="Texture2D" uid="uid://cdmmv837tcgah" path="res://assets/textures/sprites/playerSheet.png" id="2_e5m5k"]
+[ext_resource type="Texture2D" uid="uid://cdmmv837tcgah" path="res://assets/sprites/playerSheet.png" id="2_e5m5k"]
 [ext_resource type="Script" path="res://scenes/components/scaling/ScalingManager.gd" id="3_npv27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exvcg"]

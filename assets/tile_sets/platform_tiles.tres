@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cgicqkse3trv5"]
 
-[ext_resource type="Texture2D" uid="uid://csexgjfq4oogm" path="res://assets/textures/sprites/sewer_platform_sprite.png" id="1_kv3oj"]
-[ext_resource type="Texture2D" uid="uid://cc5qhcodeti7p" path="res://assets/textures/sprites/gy_platform_sprite.png" id="2_8j35h"]
+[ext_resource type="Texture2D" uid="uid://csexgjfq4oogm" path="res://assets/tile_sets/tilesheet_sewer.png" id="1_2fe8f"]
+[ext_resource type="Texture2D" uid="uid://cc5qhcodeti7p" path="res://assets/tile_sets/tilesheet_graveyard.png" id="2_survf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_op388"]
-texture = ExtResource("1_kv3oj")
+texture = ExtResource("1_2fe8f")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -242,7 +242,7 @@ texture_region_size = Vector2i(64, 64)
 11:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afl1a"]
-texture = ExtResource("2_8j35h")
+texture = ExtResource("2_survf")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
