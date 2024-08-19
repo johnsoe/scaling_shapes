@@ -9,9 +9,9 @@ extends CanvasLayer
 ####################################################################################################
 var music_map: Dictionary = {
 								"main_menu": "title",
-								"level_1": "cave",
+								"level_1": "graveyard",
 								"level_2": "cave",
-								"level_3": "cave",
+								"level_3": "sewer",
 								"level_4": "pharmacy"
 							}
 
@@ -34,8 +34,8 @@ var flavor_text_map: Dictionary = {
 ####################################################################################################
 # Scene Transition Variables                                                                       #
 ####################################################################################################
-var next_song  = music_map["main_menu"]
-var next_scene = scene_map["main_menu"]
+var next_song: String
+var next_scene: String
 
 
 ####################################################################################################
@@ -56,7 +56,7 @@ func get_remaining_transition_time() -> float:
 	return animation_player.current_animation_length - animation_player.current_animation_position
 
 
-func transition_to_level(box_size, box_position, box_rotation, target_level):
+func transition_to_level(box_size: Vector2, box_position: Vector2, box_rotation: float, target_level: String):
 
 	# Set transition box transform
 	black_box.size = box_size
@@ -73,7 +73,7 @@ func transition_to_level(box_size, box_position, box_rotation, target_level):
 	animation_player.play("Fade Out Scene")
 
 
-func reload_current_level(box_size, box_position, box_rotation):
+func reload_current_level(box_size: Vector2, box_position: Vector2, box_rotation: float):
 
 	# Set transition box transform
 	black_box.size = box_size
@@ -94,8 +94,10 @@ func _on_animation_player_animation_finished(anim_name):
 				get_tree().paused = false
 
 			# Load next scene
-			MusicController.load_song(next_song)
-			get_tree().change_scene_to_file(next_scene)
+			if not next_song.is_empty():
+				MusicController.load_song(next_song)
+			if not next_scene.is_empty():
+				get_tree().change_scene_to_file(next_scene)
 
 			# Fade in new scene
 			MusicController.fade_in()
