@@ -83,7 +83,6 @@ func _physics_process(delta):
 		var collision = get_slide_collision(index)
 		if collision.get_collider() is RigidBody2D:
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
-		
 
 
 ####################################################################################################
