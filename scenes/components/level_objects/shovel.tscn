@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://s78b8icpv6bi"]
+
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_ibw6y"]
+[ext_resource type="Texture2D" uid="uid://buwuwxnbkiwyu" path="res://assets/sprites/spriteSheet.png" id="3_rhy0s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqecc"]
+atlas = ExtResource("3_rhy0s")
+region = Rect2(420, 0, 60, 261)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgrdd"]
+atlas = ExtResource("3_rhy0s")
+region = Rect2(611, 0, 66, 261)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs31r"]
+atlas = ExtResource("3_rhy0s")
+region = Rect2(545, 0, 66, 262)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vtlg"]
+atlas = ExtResource("3_rhy0s")
+region = Rect2(479, 0, 66, 261)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epmak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqecc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgrdd")
+}],
+"loop": true,
+"name": &"deflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs31r")
+}],
+"loop": true,
+"name": &"inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vtlg")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n28u0"]
+radius = 18.5
+height = 228.0
+
+[node name="Shovel" type="RigidBody2D" groups=["habitable_objects"]]
+can_sleep = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_epmak")
+animation = &"neutral"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -3)
+shape = SubResource("CapsuleShape2D_n28u0")
+
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_ibw6y")]
+scale_max = 10.0
+rb_2d = NodePath("..")
+collision_2d = NodePath("../CollisionShape2D")
+animated_sprite = NodePath("../AnimatedSprite2D")

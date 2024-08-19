@@ -1,7 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://bllpf6wtqaxmu"]
+[gd_scene load_steps=9 format=3 uid="uid://ci7qb7t4ewfwe"]
 
-[ext_resource type="Texture2D" uid="uid://d03ymsw20n8k3" path="res://assets/textures/sprites/spriteSheet.png" id="1_q7abp"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_7h1mt"]
+[ext_resource type="Texture2D" uid="uid://buwuwxnbkiwyu" path="res://assets/sprites/spriteSheet.png" id="1_vu6xw"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_7h1mt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7dfb"]
+atlas = ExtResource("1_vu6xw")
+region = Rect2(704, 0, 114, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8ku0"]
+atlas = ExtResource("1_vu6xw")
+region = Rect2(685, 349, 135, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uikrr"]
+atlas = ExtResource("1_vu6xw")
+region = Rect2(685, 234, 135, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20skq"]
+atlas = ExtResource("1_vu6xw")
+region = Rect2(685, 119, 135, 115)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owe53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7dfb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8ku0")
+}],
+"loop": true,
+"name": &"deflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uikrr")
+}],
+"loop": true,
+"name": &"inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20skq")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wsf2"]
 size = Vector2(111, 110)
@@ -10,15 +61,14 @@ size = Vector2(111, 110)
 mass = 5.0
 can_sleep = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_q7abp")
-region_enabled = true
-region_rect = Rect2(689.5, 2.5, 114, 113)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_owe53")
+animation = &"neutral"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1wsf2")
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "sprite_2d") instance=ExtResource("2_7h1mt")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_7h1mt")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
-sprite_2d = NodePath("../Sprite2D")
+animated_sprite = NodePath("../AnimatedSprite2D")
