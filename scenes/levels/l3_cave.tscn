@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://r4804veh7o4m"]
+[gd_scene load_steps=14 format=3 uid="uid://r4804veh7o4m"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_htqwb"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_gxems"]
@@ -6,7 +6,9 @@
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_o8tot"]
 [ext_resource type="PackedScene" uid="uid://bi6v3op3c1w8t" path="res://scenes/components/level_objects/level_goal.tscn" id="5_mxxy7"]
 [ext_resource type="PackedScene" uid="uid://b7a4phf2gpk0d" path="res://scenes/components/level_objects/cave/boulder.tscn" id="5_y2mh2"]
+[ext_resource type="PackedScene" uid="uid://cux3vr2cjn3nm" path="res://scenes/components/backgrounds/cave_bg.tscn" id="6_5cu0i"]
 [ext_resource type="PackedScene" uid="uid://cj7jo7ngrnpjq" path="res://scenes/components/level_objects/cave/branch.tscn" id="6_qln18"]
+[ext_resource type="PackedScene" uid="uid://c3l4yd04l0nk0" path="res://scenes/components/backgrounds/cave_fg.tscn" id="7_84j1e"]
 [ext_resource type="PackedScene" uid="uid://c1nrhyehepgmj" path="res://scenes/components/level_objects/cave/crystal.tscn" id="7_os3w6"]
 [ext_resource type="PackedScene" uid="uid://vnhpd4y2uvgm" path="res://scenes/components/level_objects/cave/log.tscn" id="8_jg4h5"]
 [ext_resource type="PackedScene" uid="uid://8ep2744llxxx" path="res://scenes/components/level_objects/cave/stone.tscn" id="9_udnu8"]
@@ -24,10 +26,14 @@ position = Vector2(429, -255)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_o8tot")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131068, 196609, 4, -131067, 196609, 4, -131066, 196609, 4, -131065, 196609, 4, -131064, 196609, 4, -131063, 196609, 4, -131062, 196609, 4, -131061, 196609, 4, -131060, 262145, 4, -131069, 131073, 4, -196605, 131073, 3, -196596, 262145, 3)
+layer_0/tile_data = PackedInt32Array(-131068, 65539, 1, -131067, 131075, 1, -131066, 196611, 1, -131065, 196611, 1, -131064, 262147, 1, -131063, 131075, 268435457, -131062, 131075, 1, -131061, 262147, 1, -131060, 327683, 1, -131069, 3, 1, -196605, 3, 0, -196596, 327683, 0, -196604, 65539, 0, -65532, 65539, 2, -196603, 131075, 0, -65531, 131075, 2, -196602, 196611, 0, -65530, 196611, 2, -196601, 262147, 0, -65529, 196611, 2, -196600, 65539, 0, -65528, 262147, 2, -196599, 131075, 0, -65527, 131075, 268435458, -196598, 196611, 0, -65526, 131075, 2, -196597, 262147, 0, -65525, 262147, 2)
 
 [node name="LevelGoal" parent="." instance=ExtResource("5_mxxy7")]
 position = Vector2(1600, -295)
+
+[node name="CaveBackground" parent="." instance=ExtResource("6_5cu0i")]
+
+[node name="CaveForeground" parent="." instance=ExtResource("7_84j1e")]
 
 [node name="Props" type="Node" parent="."]
 
