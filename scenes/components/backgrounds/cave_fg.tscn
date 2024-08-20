@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3l4yd04l0nk0"]
+
+[ext_resource type="Texture2D" uid="uid://dc6mtcdhmrxnk" path="res://assets/textures/backgrounds/cave/cave_fg.png" id="1_o1vdg"]
+
+[node name="CaveForeground" type="ParallaxBackground"]
+layer = 100
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(3840, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_o1vdg")
+centered = false
