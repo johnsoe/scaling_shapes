@@ -30,7 +30,8 @@ var tutorial_current_step: tutorial_step = tutorial_step.move
 # Built-In Functions                                                                               #
 ####################################################################################################
 func _process(_delta):
-	if tutorial_complete:
+	if tutorial_complete or OS.is_debug_build():
+		visible = false
 		return
 
 	if label.text != tutorial_messages[tutorial_current_step]:
@@ -83,7 +84,6 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Fade Out":
 		if tutorial_current_step == tutorial_step.scale_down:
 			tutorial_complete = true
-			visible = false
 			return
 
 		tutorial_current_step += 1

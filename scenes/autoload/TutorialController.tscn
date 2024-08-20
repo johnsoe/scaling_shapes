@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djj8hqhj8lqe0"]
+[gd_scene load_steps=7 format=3 uid="uid://dx2ue0x32yi1g"]
 
 [ext_resource type="Script" path="res://scenes/autoload/TutorialController.gd" id="1_6i5ed"]
 [ext_resource type="FontFile" uid="uid://b5bo5i8glyepd" path="res://assets/fonts/lonely_cake.otf" id="1_ogr6g"]
