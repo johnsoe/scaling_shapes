@@ -60,6 +60,12 @@ texture = ExtResource("1_gjavu")
 region_enabled = true
 region_rect = Rect2(261, 1, 22, 259)
 
+[node name="RopeExtension2" type="Sprite2D" parent="TopRope"]
+position = Vector2(1, -1009.48)
+texture = ExtResource("1_gjavu")
+region_enabled = true
+region_rect = Rect2(261, 1, 22, 259)
+
 [node name="Knot" type="Sprite2D" parent="TopRope"]
 position = Vector2(4, -337)
 texture = ExtResource("1_gjavu")

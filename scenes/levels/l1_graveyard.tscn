@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbjqo72ufu8il"]
+[gd_scene load_steps=18 format=3 uid="uid://dbjqo72ufu8il"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_t4744"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_rxa3n"]
@@ -16,12 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://bp0v45ivh8jn5" path="res://scenes/components/level_objects/graveyard/skull.tscn" id="12_5kwlk"]
 [ext_resource type="PackedScene" uid="uid://cxyifp4hqr5gd" path="res://scenes/components/level_objects/pulley/pulley.tscn" id="14_xvi6o"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uveft"]
-friction = 0.5
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tos1s"]
 atlas = ExtResource("7_ifd2e")
 region = Rect2(872.682, 1006.26, 176.001, 198.054)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uveft"]
+friction = 0.5
 
 [node name="Graveyard" type="Node2D"]
 
