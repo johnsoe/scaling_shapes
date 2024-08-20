@@ -106,5 +106,5 @@ position = Vector2(9006, -2241)
 position = Vector2(6888, -2352)
 max_offset = 250.0
 
-[node name="Boulder" parent="." instance=ExtResource("5_y2mh2")]
+[node name="Boulder2" parent="Props" instance=ExtResource("5_y2mh2")]
 position = Vector2(8900, -2100)
