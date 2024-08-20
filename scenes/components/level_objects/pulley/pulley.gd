@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var move_speed: float = 0.5
+@export var move_speed: float = 2.5
 @export var wheel_rotation_fraction: float = 5.0
-@export var max_offset: float = 50.0
+@export var max_offset: float = 200.0
 
 @onready var platform_left: AnimatableBody2D = $PlatformControl/PulleyPlatformLeft
 @onready var platform_right: AnimatableBody2D = $PlatformControl/PulleyPlatformRight
