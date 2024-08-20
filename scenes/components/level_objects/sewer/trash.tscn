@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://r2nrmb5lhihl"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_ghsuf"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_bfdjh"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_bfdjh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6h3o"]
 atlas = ExtResource("1_ghsuf")
@@ -61,6 +61,13 @@ height = 114.0
 [node name="Trash" type="RigidBody2D" groups=["habitable_objects"]]
 mass = 2.0
 can_sleep = false
+
+[node name="GlowSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -1)
+texture = ExtResource("1_ghsuf")
+region_enabled = true
+region_rect = Rect2(903, 822, 154, 175)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a1bsn")

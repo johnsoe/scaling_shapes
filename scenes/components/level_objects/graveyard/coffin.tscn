@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccwkws2exvlp7"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_un7ci"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_g5w6l"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_g5w6l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pde4y"]
 atlas = ExtResource("1_un7ci")
@@ -60,6 +60,13 @@ size = Vector2(208, 121)
 [node name="Coffin" type="RigidBody2D" groups=["habitable_objects"]]
 mass = 5.0
 can_sleep = false
+
+[node name="GlowSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -2)
+texture = ExtResource("1_un7ci")
+region_enabled = true
+region_rect = Rect2(1522, 823, 258, 182)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xkihp")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1nrhyehepgmj"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_lcvux"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_wu8xy"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_wu8xy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04ms6"]
 atlas = ExtResource("1_lcvux")
@@ -61,6 +61,13 @@ height = 230.0
 [node name="Crystal" type="RigidBody2D" groups=["habitable_objects"]]
 mass = 3.0
 can_sleep = false
+
+[node name="GlowSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+texture = ExtResource("1_lcvux")
+region_enabled = true
+region_rect = Rect2(1377, 722, 145, 277)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epmak")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://mlo68p4bwg3p"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_snj8a"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_inonu"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_inonu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fq51j"]
 atlas = ExtResource("1_snj8a")
@@ -60,6 +60,13 @@ radius = 50.04
 [node name="Tire" type="RigidBody2D" groups=["habitable_objects"]]
 mass = 5.0
 can_sleep = false
+
+[node name="GlowSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+texture = ExtResource("1_snj8a")
+region_enabled = true
+region_rect = Rect2(1055, 852, 153, 144)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epmak")
