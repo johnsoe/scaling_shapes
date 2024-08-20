@@ -44,6 +44,7 @@ func _physics_process(_delta):
 	rb_2d.mass = updated_scale.x
 	collision_2d.scale = updated_scale
 	animated_sprite.scale = updated_scale
+	border_sprite.scale = updated_scale
 
 
 ####################################################################################################
@@ -74,6 +75,7 @@ func on_scale_pause(node: RigidBody2D):
 
 
 func on_node_inhabited(node: RigidBody2D):
+	border_sprite.visible = false
 	if (rb_2d == node):
 		animated_sprite.play("neutral")
 		is_inhabited = true
@@ -87,11 +89,9 @@ func on_node_uninhabited(node: RigidBody2D):
 
 func on_node_selected(node: RigidBody2D):
 	if border_sprite != null:
-		border_sprite.visible = rb_2d == node
+		border_sprite.visible = rb_2d == node && not is_inhabited
 
 
 func on_node_unselected(node: RigidBody2D):
-	print("unselected")
 	if (rb_2d == node) and border_sprite != null:
-		print("unselected 2")
 		border_sprite.visible = false

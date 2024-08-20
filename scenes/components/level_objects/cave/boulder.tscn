@@ -63,10 +63,10 @@ can_sleep = false
 
 [node name="GlowSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(7, -2)
+position = Vector2(7, -3)
 texture = ExtResource("1_pngkm")
 region_enabled = true
-region_rect = Rect2(127, 873, 121, 124)
+region_rect = Rect2(127, 875, 119, 118)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2f2ca")

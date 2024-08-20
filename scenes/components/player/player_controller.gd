@@ -130,7 +130,8 @@ func on_uninhabit():
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("habitable_objects") and not nearbyObjects.has(body) and body is RigidBody2D:
 		nearbyObjects.append(body as RigidBody2D)
-		Events.emit_node_selected(body)
+		if not scaling_manager.is_inhabited():
+			Events.emit_node_selected(body)
 
 
 # Area exited signal from area2d
