@@ -138,7 +138,7 @@ func _on_area_2d_body_entered(body: Node2D):
 func _on_area_2d_body_exited(body: Node2D):
 	if body == scaling_manager.inhabited_node:
 		return
-		
+
 	if body.is_in_group("habitable_objects") and nearbyObjects.has(body):
 		nearbyObjects.erase(body)
 		Events.emit_node_unselected(body)

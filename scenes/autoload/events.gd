@@ -27,7 +27,7 @@ func emit_node_inhabited(node: RigidBody2D):
 
 func emit_node_uninhabited(node: RigidBody2D):
 	node_uninhabited.emit(node)
-	
+
 
 func emit_node_selected(node: RigidBody2D):
 	node_selected.emit(node)

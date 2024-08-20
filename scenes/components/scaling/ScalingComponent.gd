@@ -43,7 +43,6 @@ func _physics_process(_delta):
 	rb_2d.mass = updated_scale.x
 	collision_2d.scale = updated_scale
 	animated_sprite.scale = updated_scale
-	#border_sprite.scale = updated_scale
 
 
 ####################################################################################################
