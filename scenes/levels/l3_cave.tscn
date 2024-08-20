@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://r4804veh7o4m"]
+[gd_scene load_steps=16 format=3 uid="uid://r4804veh7o4m"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_htqwb"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_gxems"]
@@ -6,51 +6,62 @@
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_o8tot"]
 [ext_resource type="PackedScene" uid="uid://bi6v3op3c1w8t" path="res://scenes/components/level_objects/level_goal.tscn" id="5_mxxy7"]
 [ext_resource type="PackedScene" uid="uid://b7a4phf2gpk0d" path="res://scenes/components/level_objects/cave/boulder.tscn" id="5_y2mh2"]
-[ext_resource type="PackedScene" uid="uid://cux3vr2cjn3nm" path="res://scenes/components/backgrounds/cave_bg.tscn" id="6_5cu0i"]
+[ext_resource type="PackedScene" uid="uid://dsmil308l7lw1" path="res://scenes/components/backgrounds/cave_bg.tscn" id="6_5cu0i"]
 [ext_resource type="PackedScene" uid="uid://cj7jo7ngrnpjq" path="res://scenes/components/level_objects/cave/branch.tscn" id="6_qln18"]
-[ext_resource type="PackedScene" uid="uid://c3l4yd04l0nk0" path="res://scenes/components/backgrounds/cave_fg.tscn" id="7_84j1e"]
+[ext_resource type="PackedScene" uid="uid://bmdoy5w56bmpt" path="res://scenes/components/backgrounds/cave_fg.tscn" id="7_84j1e"]
 [ext_resource type="PackedScene" uid="uid://c1nrhyehepgmj" path="res://scenes/components/level_objects/cave/crystal.tscn" id="7_os3w6"]
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="7_peb1j"]
 [ext_resource type="PackedScene" uid="uid://vnhpd4y2uvgm" path="res://scenes/components/level_objects/cave/log.tscn" id="8_jg4h5"]
 [ext_resource type="PackedScene" uid="uid://8ep2744llxxx" path="res://scenes/components/level_objects/cave/stone.tscn" id="9_udnu8"]
 [ext_resource type="PackedScene" uid="uid://ci7qb7t4ewfwe" path="res://scenes/components/level_objects/cave/stone_block.tscn" id="10_2ahja"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dms41"]
+atlas = ExtResource("7_peb1j")
+region = Rect2(1253.96, 1004.76, 173.782, 198.618)
 
 [node name="Cave" type="Node2D"]
 
 [node name="HudOverlay" parent="." instance=ExtResource("1_htqwb")]
 
+[node name="CaveBackground" parent="." instance=ExtResource("6_5cu0i")]
+
+[node name="CaveForeground" parent="." instance=ExtResource("7_84j1e")]
+
 [node name="PlayerNode" parent="." instance=ExtResource("2_gxems")]
-position = Vector2(429, -255)
+position = Vector2(378, -539)
 
 [node name="DeathPlane" parent="." instance=ExtResource("3_0f0je")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_o8tot")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131068, 65539, 1, -131067, 131075, 1, -131066, 196611, 1, -131065, 196611, 1, -131064, 262147, 1, -131063, 131075, 268435457, -131062, 131075, 1, -131061, 262147, 1, -131060, 327683, 1, -131069, 3, 1, -196605, 3, 0, -196596, 327683, 0, -196604, 65539, 0, -65532, 65539, 2, -196603, 131075, 0, -65531, 131075, 2, -196602, 196611, 0, -65530, 196611, 2, -196601, 262147, 0, -65529, 196611, 2, -196600, 65539, 0, -65528, 262147, 2, -196599, 131075, 0, -65527, 131075, 268435458, -196598, 196611, 0, -65526, 131075, 2, -196597, 262147, 0, -65525, 262147, 2)
+layer_0/tile_data = PackedInt32Array(-786422, 3, 2, -786416, 3, 2, -524285, 3, 0, -458749, 3, 1, -458748, 65539, 4, -458747, 131075, 4, -458746, 196611, 4, -458745, 262147, 4, -458742, 65539, 4, -458741, 131075, 4, -458740, 196611, 4, -458739, 262147, 4, -458736, 65539, 4, -458735, 131075, 4, -458734, 196611, 4, -458733, 262147, 4, -458730, 65539, 4, -458729, 131075, 4, -458728, 196611, 4, -458727, 262147, 4, -458724, 65539, 4, -458723, 131075, 4, -458722, 196611, 4, -458721, 262147, 4, -458718, 65539, 4, -458717, 131075, 4, -458716, 196611, 4, -458715, 262147, 4, -458712, 65539, 4, -458711, 131075, 4, -458710, 196611, 4, -458709, 262147, 4, -1245174, 3, 0, -1179638, 3, 1, -1114102, 3, 2, -1245173, 65539, 0, -1179637, 65539, 1, -1114101, 65539, 2, -1245172, 131075, 0, -1179636, 131075, 1, -1114100, 131075, 2, -1245171, 196611, 0, -1179635, 196611, 1, -1114099, 196611, 2, -1245170, 262147, 0, -1179634, 262147, 1, -1114098, 262147, 2, -1245169, 327683, 0, -1179633, 327683, 1, -1245168, 3, 0, -1179632, 3, 1, -1114096, 3, 2, -1245167, 65539, 0, -1179631, 65539, 1, -1114095, 65539, 2, -1245166, 131075, 0, -1179630, 131075, 1, -1114094, 131075, 2, -1245165, 196611, 0, -1179629, 196611, 1, -1114093, 196611, 2, -1245164, 262147, 0, -1179628, 262147, 1, -1114092, 262147, 2, -1245163, 327683, 0, -1179627, 327683, 1)
 
-[node name="LevelGoal" parent="." instance=ExtResource("5_mxxy7")]
-position = Vector2(1600, -295)
+[node name="LevelExitDoor" type="Sprite2D" parent="."]
+position = Vector2(2687, -593)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_dms41")
 
-[node name="CaveBackground" parent="." instance=ExtResource("6_5cu0i")]
-
-[node name="CaveForeground" parent="." instance=ExtResource("7_84j1e")]
+[node name="LevelGoal" parent="LevelExitDoor" instance=ExtResource("5_mxxy7")]
+position = Vector2(-4.66667, 19.3333)
+scale = Vector2(1, 1)
 
 [node name="Props" type="Node" parent="."]
 
 [node name="Boulder" parent="Props" instance=ExtResource("5_y2mh2")]
-position = Vector2(811, -522)
+position = Vector2(902, -1282)
 
 [node name="Branch" parent="Props" instance=ExtResource("6_qln18")]
-position = Vector2(785, -365)
+position = Vector2(2296, -489)
 
 [node name="Crystal" parent="Props" instance=ExtResource("7_os3w6")]
-position = Vector2(556, -548)
+position = Vector2(802, -1283)
 
 [node name="Log" parent="Props" instance=ExtResource("8_jg4h5")]
-position = Vector2(622, -215)
+position = Vector2(1227, -1257)
 
 [node name="StoneBlock" parent="Props" instance=ExtResource("10_2ahja")]
-position = Vector2(796, -263)
+position = Vector2(1054, -1316)
 
 [node name="Stone" parent="Props" instance=ExtResource("9_udnu8")]
-position = Vector2(289, -215)
+position = Vector2(1373, -1278)
