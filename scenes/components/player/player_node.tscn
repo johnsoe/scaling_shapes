@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://16qibkk2s8nj"]
+[gd_scene load_steps=11 format=3 uid="uid://16qibkk2s8nj"]
 
 [ext_resource type="Script" path="res://scenes/components/player/player_controller.gd" id="1_xum83"]
 [ext_resource type="Texture2D" uid="uid://cdmmv837tcgah" path="res://assets/sprites/playerSheet.png" id="2_e5m5k"]
@@ -33,6 +33,28 @@ height = 152.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5d42r"]
 radius = 94.34
 
+[sub_resource type="Animation" id="Animation_jasgd"]
+resource_name = "bob"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2.08165e-12, -15), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6k86"]
+_data = {
+"bob": SubResource("Animation_jasgd")
+}
+
 [node name="PlayerNode" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 128
@@ -54,6 +76,7 @@ limit_bottom = 0
 drag_vertical_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.7653e-13, -1.27205)
 sprite_frames = SubResource("SpriteFrames_myrbi")
 animation = &"run"
 autoplay = "run"
@@ -67,6 +90,12 @@ shape = SubResource("CapsuleShape2D_iayn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5d42r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o6k86")
+}
+autoplay = "bob"
 
 [connection signal="inhabit_node" from="." to="ScalingManager" method="_on_player_node_inhabit_node"]
 [connection signal="uninhabit_node" from="." to="ScalingManager" method="_on_player_node_uninhabit_node"]
