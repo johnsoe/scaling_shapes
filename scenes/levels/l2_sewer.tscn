@@ -29,7 +29,7 @@ region = Rect2(1065.55, 1005.42, 172.12, 198.074)
 [node name="SewerForeground" parent="." instance=ExtResource("6_d5al3")]
 
 [node name="PlayerNode" parent="." instance=ExtResource("2_wv6yu")]
-position = Vector2(321, -331)
+position = Vector2(333, -382)
 
 [node name="DeathPlane" parent="." instance=ExtResource("3_1rbbe")]
 scale = Vector2(1.12782, 0.87025)
@@ -105,6 +105,7 @@ position = Vector2(7564, -2079)
 
 [node name="Tire" parent="Props/Section3" instance=ExtResource("10_5njos")]
 position = Vector2(4967, -1780)
+mass = 1.5
 
 [node name="Pipe3" parent="Props/Section3" instance=ExtResource("9_pckph")]
 position = Vector2(6303, -1496)

@@ -66,9 +66,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsg6w"]
-radius = 32.0
-height = 86.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_aietd"]
+radius = 36.0
 
 [node name="Skull" type="RigidBody2D" groups=["habitable_objects"]]
 mass = 2.0
@@ -79,10 +78,11 @@ sprite_frames = SubResource("SpriteFrames_epmak")
 animation = &"selectable"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 1)
-shape = SubResource("CapsuleShape2D_vsg6w")
+position = Vector2(1, 3)
+shape = SubResource("CircleShape2D_aietd")
 
 [node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_p364r")]
+scale_max = 4.5
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
