@@ -33,8 +33,6 @@ position = Vector2(54, -574)
 
 [node name="Pulley" parent="Props" instance=ExtResource("9_b0ibr")]
 position = Vector2(1399, -509)
-move_speed = 2.5
-max_offset = 200.0
 
 [node name="Skull" parent="Props" instance=ExtResource("7_oy0ym")]
 position = Vector2(1742, -602)
