@@ -55,14 +55,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co3mo"]
-size = Vector2(102, 93)
+size = Vector2(118, 107)
 
 [node name="Crate" type="RigidBody2D" groups=["habitable_objects"]]
+mass = 3.0
 can_sleep = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a1bsn")
-animation = &"neutral"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0.5)

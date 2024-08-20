@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://vnhpd4y2uvgm"]
+
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_5m14l"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_4dofb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67ehd"]
+atlas = ExtResource("1_5m14l")
+region = Rect2(1842, 249, 187, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0b82"]
+atlas = ExtResource("1_5m14l")
+region = Rect2(1813, 681, 216, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr6mp"]
+atlas = ExtResource("1_5m14l")
+region = Rect2(1813, 537, 216, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vphws"]
+atlas = ExtResource("1_5m14l")
+region = Rect2(1813, 393, 216, 143)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkihp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67ehd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0b82")
+}],
+"loop": true,
+"name": &"deflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr6mp")
+}],
+"loop": true,
+"name": &"inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vphws")
+}],
+"loop": false,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owmsj"]
+radius = 59.0
+height = 184.0
+
+[node name="Log" type="RigidBody2D" groups=["habitable_objects"]]
+mass = 5.0
+can_sleep = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xkihp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 8)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_owmsj")
+
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_4dofb")]
+scale_max = 3.0
+rb_2d = NodePath("..")
+collision_2d = NodePath("../CollisionShape2D")
+animated_sprite = NodePath("../AnimatedSprite2D")

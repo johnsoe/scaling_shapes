@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbjqo72ufu8il"]
+[gd_scene load_steps=14 format=3 uid="uid://dbjqo72ufu8il"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_t4744"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_rxa3n"]
@@ -6,6 +6,13 @@
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_7vjhy"]
 [ext_resource type="PackedScene" uid="uid://lq0ut8exd6tb" path="res://scenes/components/backgrounds/graveyard_fg.tscn" id="5_awfx6"]
 [ext_resource type="PackedScene" uid="uid://77rae7bcu0l5" path="res://scenes/components/backgrounds/graveyard_bg.tscn" id="6_mbnuo"]
+[ext_resource type="PackedScene" uid="uid://bi6v3op3c1w8t" path="res://scenes/components/level_objects/level_goal.tscn" id="7_7uilp"]
+[ext_resource type="PackedScene" uid="uid://5bs30kbuscsw" path="res://scenes/components/level_objects/graveyard/bone.tscn" id="7_gphk7"]
+[ext_resource type="PackedScene" uid="uid://ccwkws2exvlp7" path="res://scenes/components/level_objects/graveyard/coffin.tscn" id="8_upqtv"]
+[ext_resource type="PackedScene" uid="uid://b4460n8qg8rrg" path="res://scenes/components/level_objects/graveyard/crate.tscn" id="9_2b3pf"]
+[ext_resource type="PackedScene" uid="uid://cu2y3j5r3m1tc" path="res://scenes/components/level_objects/graveyard/fedora.tscn" id="10_40x0y"]
+[ext_resource type="PackedScene" uid="uid://bcdwfjuq08d4g" path="res://scenes/components/level_objects/graveyard/shovel.tscn" id="11_0435a"]
+[ext_resource type="PackedScene" uid="uid://bp0v45ivh8jn5" path="res://scenes/components/level_objects/graveyard/skull.tscn" id="12_5kwlk"]
 
 [node name="Graveyard" type="Node2D"]
 
@@ -24,6 +31,27 @@ position = Vector2(463, -897)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_7vjhy")
 format = 2
-layer_0/tile_data = PackedInt32Array(-196603, 131073, 1, -196602, 196609, 1, -196601, 262145, 1, -196600, 131073, 1, -196599, 196609, 1, -262140, 131073, 4, -327676, 131073, 3, -393212, 131073, 3, -458748, 131073, 3, -524284, 131073, 3, -589820, 131073, 3, -655356, 131073, 3, -720892, 131073, 3, -786428, 131073, 3, -851964, 131073, 3, -524278, 262145, 4, -589814, 262145, 3, -655350, 262145, 3, -720886, 262145, 3, -786422, 262145, 3, -851958, 262145, 3, -917494, 262145, 3, -983030, 262145, 3, -1048566, 262145, 3, -917500, 131073, 3, -983036, 131073, 3, -1048572, 131073, 3, -1114108, 131073, 2, -1114107, 196609, 2, -1114106, 196609, 2, -1114105, 196609, 2, -1114104, 196609, 2, -1114103, 196609, 2, -1114102, 262145, 2, -1245181, 1, 0, -1179645, 1, 1, -1245180, 65537, 0, -1179644, 65537, 1, -1245179, 131073, 0, -1179643, 131073, 1, -1245178, 196609, 0, -1179642, 196609, 1, -1245177, 131073, 0, -1179641, 131073, 1, -1245176, 196609, 0, -1179640, 196609, 1, -1245175, 262145, 0, -1179639, 262145, 1, -1245174, 327681, 0, -1179638, 327681, 1, -1245173, 393217, 0, -1179637, 393217, 1, -262139, 131073, 0, -262138, 196609, 0, -262137, 262145, 0, -262136, 131073, 0, -262135, 196609, 0, -262134, 262145, 0, -196598, 262145, 1, -262133, 131073, 0, -196597, 131073, 1, -262132, 196609, 0, -196596, 196609, 1, -262131, 262145, 0, -196595, 262145, 1, -262130, 131073, 0, -196594, 131073, 1, -262129, 196609, 0, -196593, 196609, 1, -262128, 262145, 0, -196592, 262145, 1, -196604, 65537, 4)
+layer_0/tile_data = PackedInt32Array(-196603, 131073, 1, -196602, 196609, 1, -196601, 262145, 1, -196600, 131073, 1, -196599, 196609, 1, -262140, 131073, 4, -327676, 131073, 3, -393212, 131073, 3, -458748, 131073, 3, -524284, 131073, 3, -589820, 131073, 3, -655356, 131073, 3, -720892, 131073, 3, -786428, 131073, 3, -851964, 131073, 3, -524278, 262145, 4, -589814, 262145, 3, -655350, 262145, 3, -720886, 262145, 3, -786422, 262145, 3, -851958, 262145, 3, -917494, 262145, 3, -983030, 262145, 3, -1048566, 262145, 3, -917500, 131073, 3, -983036, 131073, 3, -1048572, 131073, 3, -1114108, 131073, 2, -1114107, 196609, 2, -1114106, 196609, 2, -1114105, 196609, 2, -1114104, 196609, 2, -1114103, 196609, 2, -1114102, 262145, 2, -1245181, 1, 0, -1179645, 1, 1, -1245180, 65537, 0, -1179644, 65537, 1, -1245179, 131073, 0, -1179643, 131073, 1, -1245178, 196609, 0, -1179642, 196609, 1, -1245177, 131073, 0, -1179641, 131073, 1, -1245176, 196609, 0, -1179640, 196609, 1, -1245175, 262145, 0, -1179639, 262145, 1, -1245174, 327681, 0, -1179638, 327681, 1, -1245173, 393217, 0, -1179637, 393217, 1, -262139, 131073, 0, -262138, 196609, 0, -262137, 262145, 0, -262136, 131073, 0, -262135, 196609, 0, -262134, 262145, 0, -196598, 262145, 1, -262133, 131073, 0, -196597, 131073, 1, -262132, 196609, 0, -196596, 196609, 1, -262131, 262145, 0, -196595, 262145, 1, -262130, 131073, 0, -196594, 131073, 1, -262129, 196609, 0, -196593, 196609, 1, -262128, 262145, 0, -196592, 262145, 1, -196604, 65537, 4, -262127, 196609, 0, -196591, 196609, 1, -262126, 262145, 0, -196590, 262145, 1, -262125, 131073, 0, -196589, 131073, 1, -262124, 196609, 0, -196588, 196609, 1, -262123, 262145, 0, -196587, 262145, 1, -262122, 131073, 0, -196586, 131073, 1, -262121, 196609, 0, -196585, 196609, 1, -262120, 262145, 0, -196584, 262145, 1, -262119, 196609, 0, -196583, 196609, 1, -262118, 262145, 0, -196582, 262145, 1, -262117, 131073, 0, -196581, 131073, 1, -262116, 196609, 0, -196580, 196609, 1, -262115, 262145, 0, -196579, 262145, 1, -262114, 131073, 0, -196578, 131073, 1, -262113, 196609, 0, -196577, 196609, 1, -262112, 262145, 0, -196576, 262145, 1)
+
+[node name="LevelGoal" parent="." instance=ExtResource("7_7uilp")]
+position = Vector2(2043, -331)
 
 [node name="Props" type="Node" parent="."]
+
+[node name="Bone" parent="Props" instance=ExtResource("7_gphk7")]
+position = Vector2(1553, -315)
+
+[node name="Coffin" parent="Props" instance=ExtResource("8_upqtv")]
+position = Vector2(1323, -457)
+
+[node name="Crate" parent="Props" instance=ExtResource("9_2b3pf")]
+position = Vector2(1813, -421)
+
+[node name="Fedora" parent="Props" instance=ExtResource("10_40x0y")]
+position = Vector2(1791, -532)
+
+[node name="Shovel" parent="Props" instance=ExtResource("11_0435a")]
+position = Vector2(414, -345)
+
+[node name="Skull" parent="Props" instance=ExtResource("12_5kwlk")]
+position = Vector2(1551, -248)

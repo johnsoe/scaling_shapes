@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu2y3j5r3m1tc"]
+
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_mjju8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wflcc"]
+atlas = ExtResource("1_mjju8")
+region = Rect2(421.675, 388.648, 64.7757, 54.0874)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l124q"]
+size = Vector2(46.25, 41.5)
+
+[node name="Fedora" type="RigidBody2D"]
+can_sleep = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wflcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.77255e-06, 2.12501)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_l124q")

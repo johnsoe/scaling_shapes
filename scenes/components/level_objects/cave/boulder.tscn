@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7a4phf2gpk0d"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_pngkm"]
-[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_c5uec"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_c5uec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_biwn8"]
 atlas = ExtResource("1_pngkm")
@@ -55,16 +55,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2b5o"]
-radius = 37.03
+radius = 44.0114
 
 [node name="Boulder" type="RigidBody2D" groups=["habitable_objects"]]
+mass = 10.0
 can_sleep = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2f2ca")
-animation = &"neutral"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_p2b5o")
 
 [node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_c5uec")]

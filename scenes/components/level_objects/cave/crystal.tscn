@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1nrhyehepgmj"]
+
+[ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_lcvux"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_wu8xy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ms6"]
+atlas = ExtResource("1_lcvux")
+region = Rect2(1532, 0, 104, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2kgq"]
+atlas = ExtResource("1_lcvux")
+region = Rect2(1881, 0, 122, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpwu5"]
+atlas = ExtResource("1_lcvux")
+region = Rect2(1759, 0, 122, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkwp5"]
+atlas = ExtResource("1_lcvux")
+region = Rect2(1637, 0, 122, 248)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epmak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ms6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2kgq")
+}],
+"loop": true,
+"name": &"deflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpwu5")
+}],
+"loop": true,
+"name": &"inflate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkwp5")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n28u0"]
+radius = 35.0
+height = 230.0
+
+[node name="Crystal" type="RigidBody2D" groups=["habitable_objects"]]
+mass = 3.0
+can_sleep = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_epmak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_n28u0")
+
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_wu8xy")]
+scale_max = 10.0
+rb_2d = NodePath("..")
+collision_2d = NodePath("../CollisionShape2D")
+animated_sprite = NodePath("../AnimatedSprite2D")
