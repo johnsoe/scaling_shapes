@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://vnhpd4y2uvgm"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_5m14l"]
-[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_4dofb"]
+[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_4dofb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_67ehd"]
 atlas = ExtResource("1_5m14l")
@@ -62,6 +62,13 @@ height = 184.0
 mass = 5.0
 can_sleep = false
 
+[node name="GlowSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, 3)
+texture = ExtResource("1_5m14l")
+region_enabled = true
+region_rect = Rect2(1544, 1009, 234, 172)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xkihp")
 
@@ -70,7 +77,8 @@ position = Vector2(1, 8)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_owmsj")
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_4dofb")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite", "border_sprite") instance=ExtResource("2_4dofb")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
+border_sprite = NodePath("../GlowSprite")
