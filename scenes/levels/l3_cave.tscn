@@ -89,9 +89,6 @@ position = Vector2(4443, -1601)
 [node name="Log2" parent="Props" instance=ExtResource("8_jg4h5")]
 position = Vector2(3955, -2305)
 
-[node name="Log6" parent="Props" instance=ExtResource("8_jg4h5")]
-position = Vector2(3955, -2305)
-
 [node name="Log3" parent="Props" instance=ExtResource("8_jg4h5")]
 position = Vector2(3433, -3008)
 
