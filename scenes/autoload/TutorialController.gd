@@ -15,11 +15,11 @@ enum tutorial_step {
 }
 
 var tutorial_messages: Array[String] = [
-									   "Press [A] to move left\nPress [D] to move right",
+									   "Press [A or Left] to move left\nPress [D or Right] to move right",
 									   "Press [Space] to jump",
 									   "Press [R] to possess an object\nPress [R] to leave the object",
-									   "While possessing an object:\nPress [W] to increase it's scale",
-									   "While possessing an object:\nPress [S] to decrease it's scale"
+									   "While possessing an object:\nPress [W or Up] to increase it's scale",
+									   "While possessing an object:\nPress [S or Down] to decrease it's scale"
 									   ]
 
 var tutorial_complete: bool              = false

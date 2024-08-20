@@ -78,6 +78,7 @@ position = Vector2(3111, -783)
 [node name="Skull2" parent="Props" instance=ExtResource("12_5kwlk")]
 position = Vector2(3298, -1516)
 rotation = -1.10654
+mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_uveft")
 
 [node name="Fedora" parent="Props" instance=ExtResource("10_40x0y")]
