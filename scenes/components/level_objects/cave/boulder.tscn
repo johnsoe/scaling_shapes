@@ -69,7 +69,6 @@ position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_p2b5o")
 
 [node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_c5uec")]
-scale_max = 5.0
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
