@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7a4phf2gpk0d"]
+[gd_scene load_steps=10 format=3 uid="uid://b7a4phf2gpk0d"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_pngkm"]
 [ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_c5uec"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_biwn8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_80g3o"]
 atlas = ExtResource("1_pngkm")
-region = Rect2(263, 270, 105, 92)
+region = Rect2(271, 268, 97, 95)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohpk4"]
 atlas = ExtResource("1_pngkm")
@@ -19,11 +19,15 @@ region = Rect2(475, 270, 105, 92)
 atlas = ExtResource("1_pngkm")
 region = Rect2(369, 270, 105, 92)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0konh"]
+atlas = ExtResource("1_pngkm")
+region = Rect2(122, 872, 129, 125)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2f2ca"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_biwn8")
+"texture": SubResource("AtlasTexture_80g3o")
 }],
 "loop": true,
 "name": &"default",
@@ -41,7 +45,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dg868")
 }],
-"loop": true,
+"loop": false,
 "name": &"inflate",
 "speed": 5.0
 }, {
@@ -52,6 +56,14 @@ animations = [{
 "loop": true,
 "name": &"neutral",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0konh")
+}],
+"loop": false,
+"name": &"selectable",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2b5o"]
@@ -61,13 +73,6 @@ radius = 44.0114
 mass = 10.0
 can_sleep = false
 
-[node name="GlowSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(7, -3)
-texture = ExtResource("1_pngkm")
-region_enabled = true
-region_rect = Rect2(127, 875, 119, 118)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2f2ca")
 
@@ -76,8 +81,7 @@ position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_p2b5o")
 metadata/_edit_lock_ = true
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite", "border_sprite") instance=ExtResource("2_c5uec")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_c5uec")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
-border_sprite = NodePath("../GlowSprite")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4460n8qg8rrg"]
+[gd_scene load_steps=10 format=3 uid="uid://b4460n8qg8rrg"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_yqh74"]
 [ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_4v0dp"]
@@ -18,6 +18,10 @@ region = Rect2(1314, 500, 143, 115)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvnrw"]
 atlas = ExtResource("1_yqh74")
 region = Rect2(1169, 500, 143, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1854f"]
+atlas = ExtResource("1_yqh74")
+region = Rect2(1210, 845, 160, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a1bsn"]
 animations = [{
@@ -52,6 +56,14 @@ animations = [{
 "loop": false,
 "name": &"neutral",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1854f")
+}],
+"loop": true,
+"name": &"selectable",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co3mo"]
@@ -61,22 +73,15 @@ size = Vector2(118, 107)
 mass = 3.0
 can_sleep = false
 
-[node name="GlowSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -4)
-texture = ExtResource("1_yqh74")
-region_enabled = true
-region_rect = Rect2(1198, 828, 178, 181)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a1bsn")
+animation = &"selectable"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0.5)
 shape = SubResource("RectangleShape2D_co3mo")
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite", "border_sprite") instance=ExtResource("2_4v0dp")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_4v0dp")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
-border_sprite = NodePath("../GlowSprite")

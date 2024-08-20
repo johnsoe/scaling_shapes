@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp0v45ivh8jn5"]
+[gd_scene load_steps=10 format=3 uid="uid://bp0v45ivh8jn5"]
 
 [ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_p364r"]
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="3_bjvsq"]
@@ -18,6 +18,10 @@ region = Rect2(172, 181, 85, 89)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bjay"]
 atlas = ExtResource("3_bjvsq")
 region = Rect2(174, 90, 83, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvvo4"]
+atlas = ExtResource("3_bjvsq")
+region = Rect2(6, 871, 111, 126)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epmak"]
 animations = [{
@@ -52,6 +56,14 @@ animations = [{
 "loop": true,
 "name": &"neutral",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvvo4")
+}],
+"loop": true,
+"name": &"selectable",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsg6w"]
@@ -62,22 +74,15 @@ height = 86.0
 mass = 2.0
 can_sleep = false
 
-[node name="GlowSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -3)
-texture = ExtResource("3_bjvsq")
-region_enabled = true
-region_rect = Rect2(1, 873, 120, 120)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epmak")
+animation = &"selectable"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_vsg6w")
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite", "border_sprite") instance=ExtResource("2_p364r")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_p364r")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
-border_sprite = NodePath("../GlowSprite")
