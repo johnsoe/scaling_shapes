@@ -4,12 +4,15 @@
 
 [node name="CaveForeground" type="ParallaxBackground"]
 layer = 2
+offset = Vector2(0, -120)
+transform = Transform2D(1, 0, 0, 1, 0, -120)
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(2, 2)
-motion_mirroring = Vector2(3840, 2.08165e-12)
+motion_mirroring = Vector2(4608, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_o1vdg")
 centered = false
