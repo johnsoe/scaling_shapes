@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpwyekglw7tfd"]
+[gd_scene load_steps=10 format=3 uid="uid://cpwyekglw7tfd"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_0kslu"]
 [ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_tkuss"]
@@ -18,6 +18,10 @@ region = Rect2(1269, 0, 123, 260)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pqef"]
 atlas = ExtResource("1_0kslu")
 region = Rect2(1148, 0, 122, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upjqj"]
+atlas = ExtResource("1_0kslu")
+region = Rect2(755, 703, 144, 295)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epmak"]
 animations = [{
@@ -52,6 +56,14 @@ animations = [{
 "loop": true,
 "name": &"neutral",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upjqj")
+}],
+"loop": true,
+"name": &"selectable",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n28u0"]
@@ -61,23 +73,15 @@ height = 248.0
 [node name="Plunger" type="RigidBody2D" groups=["habitable_objects"]]
 can_sleep = false
 
-[node name="GlowSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(7, 0)
-texture = ExtResource("1_0kslu")
-region_enabled = true
-region_rect = Rect2(752, 701, 152, 297)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_epmak")
-animation = &"neutral"
+animation = &"selectable"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -1)
 shape = SubResource("CapsuleShape2D_n28u0")
 
-[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite", "border_sprite") instance=ExtResource("2_tkuss")]
+[node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_tkuss")]
 rb_2d = NodePath("..")
 collision_2d = NodePath("../CollisionShape2D")
 animated_sprite = NodePath("../AnimatedSprite2D")
-border_sprite = NodePath("../GlowSprite")

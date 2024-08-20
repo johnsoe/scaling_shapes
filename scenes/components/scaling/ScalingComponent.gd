@@ -6,7 +6,6 @@ extends Node
 @export var rb_2d: RigidBody2D
 @export var collision_2d: CollisionShape2D
 @export var animated_sprite: AnimatedSprite2D
-@export var border_sprite: Sprite2D
 
 var is_inhabited: bool     = false
 var current_scaling: float = 0.0
@@ -44,7 +43,7 @@ func _physics_process(_delta):
 	rb_2d.mass = updated_scale.x
 	collision_2d.scale = updated_scale
 	animated_sprite.scale = updated_scale
-	border_sprite.scale = updated_scale
+	#border_sprite.scale = updated_scale
 
 
 ####################################################################################################
@@ -75,7 +74,7 @@ func on_scale_pause(node: RigidBody2D):
 
 
 func on_node_inhabited(node: RigidBody2D):
-	border_sprite.visible = false
+	#border_sprite.visible = false
 	if (rb_2d == node):
 		animated_sprite.play("neutral")
 		is_inhabited = true
@@ -88,10 +87,13 @@ func on_node_uninhabited(node: RigidBody2D):
 
 
 func on_node_selected(node: RigidBody2D):
-	if border_sprite != null:
-		border_sprite.visible = rb_2d == node && not is_inhabited
+	if not is_inhabited:
+		if rb_2d == node:
+			animated_sprite.play("selectable")
+		else:
+			animated_sprite.play("default")
 
 
 func on_node_unselected(node: RigidBody2D):
-	if (rb_2d == node) and border_sprite != null:
-		border_sprite.visible = false
+	if rb_2d == node and not is_inhabited:
+		animated_sprite.play("default")
