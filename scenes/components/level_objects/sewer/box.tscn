@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c86ojc1x7rgo7"]
 
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="1_vmwbb"]
-[ext_resource type="PackedScene" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_co7u2"]
+[ext_resource type="PackedScene" uid="uid://cxfg6bse4mwq7" path="res://scenes/components/scaling/ScalingComponent.tscn" id="2_co7u2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2boxo"]
 atlas = ExtResource("1_vmwbb")
@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4prtt"]
-size = Vector2(153, 111)
+size = Vector2(172, 120)
 
 [node name="Box" type="RigidBody2D" groups=["habitable_objects"]]
 can_sleep = false
@@ -64,7 +64,7 @@ can_sleep = false
 sprite_frames = SubResource("SpriteFrames_xkihp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -0.5)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_4prtt")
 
 [node name="ScalingController" parent="." node_paths=PackedStringArray("rb_2d", "collision_2d", "animated_sprite") instance=ExtResource("2_co7u2")]

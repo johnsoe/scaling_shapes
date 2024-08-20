@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://0yqbnvklhx3c"]
+[gd_scene load_steps=13 format=3 uid="uid://0yqbnvklhx3c"]
 
 [ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_4k667"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_wv6yu"]
@@ -6,6 +6,12 @@
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_1qhwb"]
 [ext_resource type="PackedScene" uid="uid://dfvicpes672m1" path="res://scenes/components/backgrounds/sewer_bg.tscn" id="5_8t0bf"]
 [ext_resource type="PackedScene" uid="uid://vhvscrfr5ebi" path="res://scenes/components/backgrounds/sewer_fg.tscn" id="6_d5al3"]
+[ext_resource type="PackedScene" uid="uid://cpwyekglw7tfd" path="res://scenes/components/level_objects/sewer/plunger.tscn" id="7_r1l2h"]
+[ext_resource type="PackedScene" uid="uid://c1wpm834qfxru" path="res://scenes/components/level_objects/sewer/poo.tscn" id="7_vl52t"]
+[ext_resource type="PackedScene" uid="uid://c86ojc1x7rgo7" path="res://scenes/components/level_objects/sewer/box.tscn" id="8_cimxx"]
+[ext_resource type="PackedScene" uid="uid://div4i8mqaycqn" path="res://scenes/components/level_objects/sewer/pipe.tscn" id="9_pckph"]
+[ext_resource type="PackedScene" uid="uid://mlo68p4bwg3p" path="res://scenes/components/level_objects/sewer/tire.tscn" id="10_5njos"]
+[ext_resource type="PackedScene" uid="uid://r2nrmb5lhihl" path="res://scenes/components/level_objects/sewer/trash.tscn" id="11_oqdtk"]
 
 [node name="Sewer" type="Node2D"]
 
@@ -16,13 +22,31 @@
 [node name="SewerForeground" parent="." instance=ExtResource("6_d5al3")]
 
 [node name="PlayerNode" parent="." instance=ExtResource("2_wv6yu")]
-position = Vector2(344, -378)
+position = Vector2(655, -370)
 
 [node name="DeathPlane" parent="." instance=ExtResource("3_1rbbe")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_1qhwb")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131069, 131072, 2, -131068, 196608, 2, -131070, 65536, 2, -65534, 65536, 3, -65532, 196608, 3, -131065, 131072, 3, -65529, 131072, 4, -131062, 131072, 3, -65526, 131072, 4, -131059, 131072, 3, -65523, 131072, 4, -131056, 65536, 2, -65520, 65536, 3, -131055, 131072, 2, -131054, 196608, 2, -65518, 196608, 3)
+layer_0/tile_data = PackedInt32Array(-1769473, 327680, 5, -1703937, 327680, 5, -1638401, 327680, 5, -1572865, 327680, 5, -1507329, 327680, 5, -1441793, 327680, 5, -1376257, 327680, 5, -1310721, 327680, 5, -1245185, 327680, 5, -1179649, 327680, 5, -1114113, 327680, 5, -1048577, 327680, 5, -983041, 327680, 5, -917505, 327680, 5, -851969, 327680, 5, -786433, 327680, 5, -720897, 327680, 5, -655361, 327680, 5, -589825, 327680, 5, -524289, 327680, 5, -458753, 327680, 5, -393217, 327680, 5, -327681, 327680, 5, -262145, 327680, 5, -196609, 327680, 5, -131073, 327680, 5, -65537, 327680, 5, -1, 327680, 5, -3014657, 327680, 5, -2949121, 327680, 5, -2883585, 327680, 5, -2818049, 327680, 5, -2752513, 327680, 5, -2686977, 327680, 5, -2621441, 327680, 5, -2555905, 327680, 5, -2490369, 327680, 5, -2424833, 327680, 5, -2359297, 327680, 5, -2293761, 327680, 5, -2228225, 327680, 5, -2162689, 327680, 5, -2097153, 327680, 5, -2031617, 327680, 5, -1966081, 327680, 5, -1900545, 327680, 5, -1835009, 327680, 5, -3211265, 327680, 5, -3145729, 327680, 5, -3080193, 327680, 5, -393202, 393216, 0, -196608, 196608, 4, -131072, 262144, 4, -65536, 196608, 4, -196607, 262144, 4, -131071, 196608, 4, -65535, 262144, 4, -196606, 196608, 4, -131070, 262144, 4, -65534, 196608, 4, -196605, 262144, 4, -131069, 196608, 4, -65533, 262144, 4, -196604, 196608, 4, -131068, 262144, 4, -65532, 196608, 4, -196603, 262144, 4, -131067, 196608, 4, -65531, 262144, 4, -196602, 196608, 4, -131066, 262144, 4, -65530, 196608, 4, -196601, 262144, 4, -131065, 196608, 4, -65529, 262144, 4, -196600, 196608, 4, -131064, 262144, 4, -65528, 196608, 4, -196599, 262144, 4, -131063, 196608, 4, -65527, 262144, 4, -196598, 196608, 4, -131062, 262144, 4, -65526, 196608, 4, -196597, 262144, 4, -131061, 196608, 4, -65525, 262144, 4, -262144, 262144, 4, -262143, 196608, 4, -262142, 262144, 4, -262141, 196608, 4, -262140, 262144, 4, -262139, 196608, 4, -262138, 262144, 4, -262137, 196608, 4, -262136, 262144, 4, -262135, 196608, 4, -262134, 262144, 4, -262133, 196608, 4, -327666, 393216, 1, -262130, 393216, 2, -393201, 458752, 0, -327665, 458752, 1, -393200, 524288, 0, -327664, 524288, 1, -393199, 589824, 0, -327663, 589824, 1, -393198, 655360, 0, -327662, 655360, 1, -393197, 720896, 0, -327661, 720896, 1, -262125, 720896, 2, -393195, 393216, 0, -327659, 393216, 1, -262123, 393216, 2, -393194, 458752, 0, -327658, 458752, 1, -393193, 524288, 0, -327657, 524288, 1, -393192, 589824, 0, -327656, 589824, 1, -393191, 655360, 0, -327655, 655360, 1, -393190, 720896, 0, -327654, 720896, 1, -262118, 720896, 2, -393188, 393216, 0, -327652, 393216, 1, -262116, 393216, 2, -393187, 458752, 0, -327651, 458752, 1, -393186, 524288, 0, -327650, 524288, 1, -393185, 589824, 0, -327649, 589824, 1, -393184, 655360, 0, -327648, 655360, 1, -393183, 720896, 0, -327647, 720896, 1, -262111, 720896, 2)
 
 [node name="Props" type="Node" parent="."]
+
+[node name="Poo" parent="Props" instance=ExtResource("7_vl52t")]
+position = Vector2(1828, -634)
+
+[node name="Box" parent="Props" instance=ExtResource("8_cimxx")]
+position = Vector2(86, -310)
+
+[node name="Pipe" parent="Props" instance=ExtResource("9_pckph")]
+position = Vector2(1544, -441)
+
+[node name="Tire" parent="Props" instance=ExtResource("10_5njos")]
+position = Vector2(1539, -367)
+
+[node name="Trash" parent="Props" instance=ExtResource("11_oqdtk")]
+position = Vector2(89, -433)
+
+[node name="Plunger" parent="Props" instance=ExtResource("7_r1l2h")]
+position = Vector2(1284, -632)
