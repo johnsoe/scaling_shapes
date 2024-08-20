@@ -9,3 +9,4 @@ build/*.exe
 build/*.x86_64
 build/*.zip
 build/*.pck
+build/*.7z
