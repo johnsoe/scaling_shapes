@@ -1,8 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://bi6v3op3c1w8t"]
+[gd_scene load_steps=23 format=3 uid="uid://bi6v3op3c1w8t"]
 
 [ext_resource type="Script" path="res://scenes/components/level_objects/level_goal.gd" id="1_7f05b"]
 [ext_resource type="Texture2D" uid="uid://bkwg23ndkr23c" path="res://assets/sprites/spriteSheet.png" id="2_u4s7n"]
 [ext_resource type="FontFile" uid="uid://b5bo5i8glyepd" path="res://assets/fonts/lonely_cake.otf" id="3_l8vgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j5px"]
+atlas = ExtResource("2_u4s7n")
+region = Rect2(10.4648, 1000.52, 76.4077, 161.578)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8g4c"]
 atlas = ExtResource("2_u4s7n")
@@ -138,11 +142,18 @@ collision_layer = 0
 collision_mask = 128
 script = ExtResource("1_7f05b")
 
+[node name="DoorBackdrop" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5, -2)
+texture = SubResource("AtlasTexture_1j5px")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q5jtm")
+animation = &"level complete"
+frame = 14
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(6, 0)
 shape = SubResource("RectangleShape2D_ritnx")
 
