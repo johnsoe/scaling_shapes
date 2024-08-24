@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://q2gp1548ifm8"]
 
-[ext_resource type="Script" path="res://scenes/autoload/music_controller.gd" id="1_8cdgg"]
+[ext_resource type="Script" path="res://scenes/autoload/MusicController.gd" id="1_8cdgg"]
 
 [sub_resource type="Animation" id="Animation_f07uo"]
 resource_name = "Fade In"

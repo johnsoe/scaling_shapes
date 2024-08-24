@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dbjqo72ufu8il"]
 
-[ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_t4744"]
+[ext_resource type="Script" path="res://scenes/levels/l1_graveyard.gd" id="1_ima00"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_rxa3n"]
 [ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="3_xj57v"]
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_7vjhy"]
@@ -24,8 +24,7 @@ region = Rect2(872.682, 1006.26, 176.001, 198.054)
 friction = 0.5
 
 [node name="Graveyard" type="Node2D"]
-
-[node name="HudOverlay" parent="." instance=ExtResource("1_t4744")]
+script = ExtResource("1_ima00")
 
 [node name="GraveyardBackground" parent="." instance=ExtResource("6_mbnuo")]
 scroll_ignore_camera_zoom = true

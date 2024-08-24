@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @onready var hud: Control = $Constraints/Hud
+@onready var time_label: Label = $Constraints/Hud/TimeLabel
+@onready var best_time_label: Label = $Constraints/Hud/BestTimeLabel
 @onready var pause_menu: Control = $Constraints/PauseMenu
 @onready var restart_level_button: TextureButton = $Constraints/PauseMenu/RestartLevelButton
 @onready var main_menu_button: TextureButton = $Constraints/PauseMenu/MainMenuButton
@@ -18,6 +20,34 @@ func _ready():
 ####################################################################################################
 func button_hover_shared():
 	SFXController.play_click_button()
+
+
+func reset_hud():
+	visible = true
+	hud.visible = true
+	pause_menu.visible = false
+
+
+func disable_hud():
+	visible = false
+
+
+func set_level_time(timestamp: String):
+	time_label.text = "Time: %s" % timestamp
+
+
+func set_level_best_time():
+	var level_name = get_tree().current_scene.name
+	var timestamp  = "--:--:--"
+
+	if level_name == "Graveyard":
+		timestamp = TimeTrialController.get_timestamp(TimeTrialController.level_1_best_time)
+	elif level_name == "Sewer":
+		timestamp = TimeTrialController.get_timestamp(TimeTrialController.level_2_best_time)
+	elif level_name == "Cave":
+		timestamp = TimeTrialController.get_timestamp(TimeTrialController.level_3_best_time)
+
+	best_time_label.text = "Best: %s" % timestamp
 
 
 ####################################################################################################

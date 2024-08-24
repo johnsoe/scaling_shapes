@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://8l6qx2ci6f8r"]
+[gd_scene load_steps=30 format=3 uid="uid://8l6qx2ci6f8r"]
 
 [ext_resource type="Texture2D" uid="uid://b2wwcb0vsoepq" path="res://assets/textures/team_scones_logo.png" id="1_2nhpa"]
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_evalm"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dl0yhrdnivt7c" path="res://assets/textures/buttons/level2_normal.png" id="14_b8ijr"]
 [ext_resource type="Texture2D" uid="uid://4qwh0xkhj4ch" path="res://assets/textures/buttons/level2_pressed.png" id="15_3f0dd"]
 [ext_resource type="Texture2D" uid="uid://vpo6m1lb14sd" path="res://assets/textures/buttons/level2_hover.png" id="16_al2hv"]
+[ext_resource type="FontFile" uid="uid://b5bo5i8glyepd" path="res://assets/fonts/lonely_cake.otf" id="17_srrxs"]
 [ext_resource type="Texture2D" uid="uid://dbsnj6rftg5ll" path="res://assets/textures/buttons/level3_normal.png" id="17_wvqw8"]
 [ext_resource type="Texture2D" uid="uid://dk4ixwnp3u18h" path="res://assets/textures/buttons/level3_pressed.png" id="18_grtag"]
 [ext_resource type="Texture2D" uid="uid://cg1pxlsaqc5m8" path="res://assets/textures/buttons/level3_hover.png" id="19_73p72"]
@@ -629,6 +630,26 @@ texture_normal = ExtResource("11_plkic")
 texture_pressed = ExtResource("12_f03wt")
 texture_hover = ExtResource("13_t0fna")
 
+[node name="Level1BestTime" type="Label" parent="Buttons/Level1Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -15.0
+offset_right = 129.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("17_srrxs")
+theme_override_font_sizes/font_size = 30
+text = "Best Time: --:--:--"
+
 [node name="Level2Button" type="TextureButton" parent="Buttons"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 850.0
@@ -640,6 +661,26 @@ texture_normal = ExtResource("14_b8ijr")
 texture_pressed = ExtResource("15_3f0dd")
 texture_hover = ExtResource("16_al2hv")
 
+[node name="Level2BestTime" type="Label" parent="Buttons/Level2Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -15.0
+offset_right = 129.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("17_srrxs")
+theme_override_font_sizes/font_size = 30
+text = "Best Time: --:--:--"
+
 [node name="Level3Button" type="TextureButton" parent="Buttons"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 1370.0
@@ -650,6 +691,26 @@ disabled = true
 texture_normal = ExtResource("17_wvqw8")
 texture_pressed = ExtResource("18_grtag")
 texture_hover = ExtResource("19_73p72")
+
+[node name="Level3BestTime" type="Label" parent="Buttons/Level3Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -15.0
+offset_right = 129.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("17_srrxs")
+theme_override_font_sizes/font_size = 30
+text = "Best Time: --:--:--"
 
 [connection signal="animation_finished" from="Animation/MenuAnimation" to="." method="_on_menu_animation_animation_finished"]
 [connection signal="animation_finished" from="Animation/LogoAnimation" to="." method="_on_logo_animation_animation_finished"]
