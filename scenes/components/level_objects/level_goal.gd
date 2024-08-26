@@ -21,6 +21,7 @@ func _on_body_entered(body):
 		body.visible = false
 		label.visible = false
 		get_tree().paused = true
+		TimeTrialController.store_level_time()
 		animated_sprite_2d.play("level complete")
 
 

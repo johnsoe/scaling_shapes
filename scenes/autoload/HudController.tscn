@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=3 uid="uid://dynfh13ad2gk6"]
+
+[ext_resource type="Script" path="res://scenes/autoload/HudController.gd" id="1_3fb8o"]
+[ext_resource type="Texture2D" uid="uid://dpbh2pbtjjgja" path="res://assets/textures/buttons/pause_normal.png" id="2_xm6nj"]
+[ext_resource type="Texture2D" uid="uid://b5en7y3tes3r2" path="res://assets/textures/buttons/pause_pressed.png" id="3_03gs5"]
+[ext_resource type="Texture2D" uid="uid://ytxkiowx1h07" path="res://assets/textures/buttons/pause_hover.png" id="4_qlvgs"]
+[ext_resource type="FontFile" uid="uid://b5bo5i8glyepd" path="res://assets/fonts/lonely_cake.otf" id="5_4emcn"]
+[ext_resource type="Texture2D" uid="uid://cqvlw75umermo" path="res://assets/textures/backgrounds/pause_menu.png" id="5_jh5fr"]
+[ext_resource type="Texture2D" uid="uid://n570jqv8trcb" path="res://assets/textures/buttons/pause_menu_resume_normal.png" id="6_p3srd"]
+[ext_resource type="Texture2D" uid="uid://djq8vs6tkrn4h" path="res://assets/textures/buttons/pause_menu_resume_pressed.png" id="7_qkd36"]
+[ext_resource type="Texture2D" uid="uid://dpy4mrwu60r4g" path="res://assets/textures/buttons/pause_menu_resume_hover.png" id="8_xti7d"]
+[ext_resource type="Texture2D" uid="uid://dak3mj2p2fcoq" path="res://assets/textures/buttons/pause_menu_restart_normal.png" id="9_mfvtm"]
+[ext_resource type="Texture2D" uid="uid://c6or31w8vp61a" path="res://assets/textures/buttons/pause_menu_restart_pressed.png" id="10_lqseq"]
+[ext_resource type="Texture2D" uid="uid://bsbfmg41qycs" path="res://assets/textures/buttons/pause_menu_restart_hover.png" id="11_k2srf"]
+[ext_resource type="Texture2D" uid="uid://b7v7eb6qvcyqh" path="res://assets/textures/buttons/pause_menu_main_normal.png" id="12_gev0s"]
+[ext_resource type="Texture2D" uid="uid://fsbkdhgtfcfa" path="res://assets/textures/buttons/pause_menu_main_pressed.png" id="13_4qas3"]
+[ext_resource type="Texture2D" uid="uid://eqhri0l600dv" path="res://assets/textures/buttons/pause_menu_main_hover.png" id="14_6y5kr"]
+
+[node name="HudController" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_3fb8o")
+
+[node name="Constraints" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hud" type="Control" parent="Constraints"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseButton" type="TextureButton" parent="Constraints/Hud"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1760.0
+offset_top = 23.0
+offset_right = 1860.0
+offset_bottom = 123.0
+grow_horizontal = 0
+rotation = 0.0349066
+scale = Vector2(1.05, 1.05)
+texture_normal = ExtResource("2_xm6nj")
+texture_pressed = ExtResource("3_03gs5")
+texture_hover = ExtResource("4_qlvgs")
+
+[node name="TimeLabel" type="Label" parent="Constraints/Hud"]
+layout_mode = 1
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 440.0
+offset_bottom = 84.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_4emcn")
+theme_override_font_sizes/font_size = 60
+text = "Time: 00:00:00"
+
+[node name="BestTimeLabel" type="Label" parent="Constraints/Hud"]
+layout_mode = 1
+offset_left = 33.0
+offset_top = 80.0
+offset_right = 450.0
+offset_bottom = 144.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_4emcn")
+theme_override_font_sizes/font_size = 60
+text = "Best: --:--:--"
+
+[node name="PauseMenu" type="Control" parent="Constraints"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuBackground" type="TextureRect" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -255.0
+offset_right = 220.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0174533
+texture = ExtResource("5_jh5fr")
+
+[node name="ResumeButton" type="TextureButton" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -242.0
+offset_right = 202.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0174533
+texture_normal = ExtResource("6_p3srd")
+texture_pressed = ExtResource("7_qkd36")
+texture_hover = ExtResource("8_xti7d")
+
+[node name="RestartLevelButton" type="TextureButton" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -76.0
+offset_right = 202.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0174533
+texture_normal = ExtResource("9_mfvtm")
+texture_pressed = ExtResource("10_lqseq")
+texture_hover = ExtResource("11_k2srf")
+
+[node name="MainMenuButton" type="TextureButton" parent="Constraints/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 77.0
+offset_right = 208.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0174533
+texture_normal = ExtResource("12_gev0s")
+texture_pressed = ExtResource("13_4qas3")
+texture_hover = ExtResource("14_6y5kr")
+
+[connection signal="mouse_entered" from="Constraints/Hud/PauseButton" to="." method="_on_pause_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/Hud/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="mouse_entered" from="Constraints/PauseMenu/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="Constraints/PauseMenu/RestartLevelButton" to="." method="_on_restart_level_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/PauseMenu/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="mouse_entered" from="Constraints/PauseMenu/MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="Constraints/PauseMenu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

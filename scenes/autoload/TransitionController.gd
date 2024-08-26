@@ -83,6 +83,12 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Fade Out Scene":
 		if next_scene != null:
 
+			# Stop level timer
+			TimeTrialController.stop_timer()
+
+			# Reset HUD
+			HudController.reset_hud()
+
 			# Unpause the engine if needed
 			if get_tree().paused:
 				get_tree().paused = false
@@ -101,3 +107,7 @@ func _on_animation_player_animation_finished(anim_name):
 			# Fade in new scene
 			MusicController.fade_in()
 			animation_player.play("Fade In Scene")
+
+	elif anim_name == "Fade In Scene":
+		if next_scene != scene_map["main_menu"]:
+			TimeTrialController.start_timer()

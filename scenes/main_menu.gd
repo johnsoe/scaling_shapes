@@ -5,6 +5,9 @@ extends Control
 @onready var level_1_button: TextureButton = $Buttons/Level1Button
 @onready var level_2_button: TextureButton = $Buttons/Level2Button
 @onready var level_3_button: TextureButton = $Buttons/Level3Button
+@onready var level_1_best_time: Label = $Buttons/Level1Button/Level1BestTime
+@onready var level_2_best_time: Label = $Buttons/Level2Button/Level2BestTime
+@onready var level_3_best_time: Label = $Buttons/Level3Button/Level3BestTime
 
 var window_size: Vector2i
 var window_position: Vector2i
@@ -15,10 +18,22 @@ var buttons_active: bool = false
 # Built-In Functions                                                                               #
 ####################################################################################################
 func _ready():
+
+	# Disable HUD and level timer, these aren't needed in the main menu
+	HudController.disable_hud()
+	TimeTrialController.stop_timer()
+
+	# Load level time data
+	level_1_best_time.text = "Best Time: %s" % TimeTrialController.get_timestamp(TimeTrialController.level_1_best_time)
+	level_2_best_time.text = "Best Time: %s" % TimeTrialController.get_timestamp(TimeTrialController.level_2_best_time)
+	level_3_best_time.text = "Best Time: %s" % TimeTrialController.get_timestamp(TimeTrialController.level_3_best_time)
+
+	# If transitioning to the main menu, wait for the transition to finish before playing intro
 	if TransitionController.is_transitioning():
 		var wait_time: float = TransitionController.get_remaining_transition_time()
 		await get_tree().create_timer(wait_time + .2).timeout
 
+	# Play main menu intro
 	menu_animation.play("Menu Intro")
 	logo_animation.play("Logo Intro")
 	MusicController.load_song("title")

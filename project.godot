@@ -22,9 +22,11 @@ config/icon="res://assets/icon.png"
 [autoload]
 
 Events="*res://scenes/autoload/events.gd"
-MusicController="*res://scenes/autoload/music_controller.tscn"
-SFXController="*res://scenes/autoload/sfx_controller.tscn"
-TransitionController="*res://scenes/autoload/transition_controller.tscn"
+HudController="*res://scenes/autoload/HudController.tscn"
+MusicController="*res://scenes/autoload/MusicController.tscn"
+SFXController="*res://scenes/autoload/SfxController.tscn"
+TimeTrialController="*res://scenes/autoload/TimeTrialController.tscn"
+TransitionController="*res://scenes/autoload/TransitionController.tscn"
 TutorialController="*res://scenes/autoload/TutorialController.tscn"
 
 [display]

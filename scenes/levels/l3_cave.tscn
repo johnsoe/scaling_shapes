@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://r4804veh7o4m"]
 
-[ext_resource type="PackedScene" uid="uid://dynfh13ad2gk6" path="res://scenes/components/hud_overlay.tscn" id="1_htqwb"]
+[ext_resource type="Script" path="res://scenes/levels/l3_cave.gd" id="1_ubl5i"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_gxems"]
 [ext_resource type="PackedScene" uid="uid://g2vcnsmqkpkc" path="res://scenes/components/level_objects/death_plane.tscn" id="3_0f0je"]
 [ext_resource type="TileSet" uid="uid://bib4ncnexijkb" path="res://assets/tile_sets/platform_tiles.tres" id="4_o8tot"]
@@ -21,8 +21,7 @@ atlas = ExtResource("7_peb1j")
 region = Rect2(1253.96, 1004.76, 173.782, 198.618)
 
 [node name="Cave" type="Node2D"]
-
-[node name="HudOverlay" parent="." instance=ExtResource("1_htqwb")]
+script = ExtResource("1_ubl5i")
 
 [node name="CaveBackground" parent="." instance=ExtResource("6_5cu0i")]
 
