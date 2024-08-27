@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0yqbnvklhx3c"]
+[gd_scene load_steps=19 format=3 uid="uid://0yqbnvklhx3c"]
 
 [ext_resource type="Script" path="res://scenes/levels/l2_sewer.gd" id="1_xilwi"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_wv6yu"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://div4i8mqaycqn" path="res://scenes/components/level_objects/sewer/pipe.tscn" id="9_pckph"]
 [ext_resource type="PackedScene" uid="uid://mlo68p4bwg3p" path="res://scenes/components/level_objects/sewer/tire.tscn" id="10_5njos"]
 [ext_resource type="PackedScene" uid="uid://r2nrmb5lhihl" path="res://scenes/components/level_objects/sewer/trash.tscn" id="11_oqdtk"]
+[ext_resource type="PackedScene" uid="uid://by2qpmdskkvp6" path="res://scenes/components/core/cheekpoint/CheekpointManager.tscn" id="16_18d2e"]
+[ext_resource type="PackedScene" uid="uid://d4n14h508n7q0" path="res://scenes/components/core/cheekpoint/cheekpoint.tscn" id="17_yccks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrwpc"]
 atlas = ExtResource("7_pduhy")
@@ -182,3 +184,17 @@ rotation = 0.55676
 [node name="Trash11" parent="Props/Section5" instance=ExtResource("11_oqdtk")]
 position = Vector2(12757, -2934)
 rotation = 0.778417
+
+[node name="CheekpointManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("16_18d2e")]
+level_name = "sewer"
+player_node = NodePath("../PlayerNode")
+
+[node name="Cheekpoint" parent="CheekpointManager" instance=ExtResource("17_yccks")]
+position = Vector2(3932, -996)
+cp_id = 1
+
+[node name="Cheekpoint2" parent="CheekpointManager" instance=ExtResource("17_yccks")]
+position = Vector2(8692, -1844)
+cp_id = 2
+
+[connection signal="level_complete" from="LevelExitDoor/LevelGoal" to="CheekpointManager" method="_on_level_goal_level_complete"]

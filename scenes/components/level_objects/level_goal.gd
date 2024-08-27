@@ -1,5 +1,7 @@
 extends Area2D
 
+signal level_complete()
+
 const GOAL_BOX_POSITION: Vector2 = Vector2(960, 540)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var label: Label = $Label
@@ -22,6 +24,7 @@ func _on_body_entered(body):
 		label.visible = false
 		get_tree().paused = true
 		TimeTrialController.store_level_time()
+		level_complete.emit()
 		animated_sprite_2d.play("level complete")
 
 

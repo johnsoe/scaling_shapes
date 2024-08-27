@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbjqo72ufu8il"]
+[gd_scene load_steps=20 format=3 uid="uid://dbjqo72ufu8il"]
 
 [ext_resource type="Script" path="res://scenes/levels/l1_graveyard.gd" id="1_ima00"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_rxa3n"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://bcdwfjuq08d4g" path="res://scenes/components/level_objects/graveyard/shovel.tscn" id="11_0435a"]
 [ext_resource type="PackedScene" uid="uid://bp0v45ivh8jn5" path="res://scenes/components/level_objects/graveyard/skull.tscn" id="12_5kwlk"]
 [ext_resource type="PackedScene" uid="uid://cxyifp4hqr5gd" path="res://scenes/components/level_objects/pulley/pulley.tscn" id="14_xvi6o"]
+[ext_resource type="PackedScene" uid="uid://by2qpmdskkvp6" path="res://scenes/components/core/cheekpoint/CheekpointManager.tscn" id="16_m3rpw"]
+[ext_resource type="PackedScene" uid="uid://d4n14h508n7q0" path="res://scenes/components/core/cheekpoint/cheekpoint.tscn" id="16_qpyfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tos1s"]
 atlas = ExtResource("7_ifd2e")
@@ -97,3 +99,17 @@ position = Vector2(8345, -1149)
 
 [node name="Pulley" parent="Props" instance=ExtResource("14_xvi6o")]
 position = Vector2(8012, -1033)
+
+[node name="CheekpointManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("16_m3rpw")]
+level_name = "graveyard"
+player_node = NodePath("../PlayerNode")
+
+[node name="Cheekpoint" parent="CheekpointManager" instance=ExtResource("16_qpyfg")]
+position = Vector2(1964, -1354)
+cp_id = 1
+
+[node name="Cheekpoint2" parent="CheekpointManager" instance=ExtResource("16_qpyfg")]
+position = Vector2(5666, -1244)
+cp_id = 2
+
+[connection signal="level_complete" from="LevelExitDoor/LevelGoal" to="CheekpointManager" method="_on_level_goal_level_complete"]
