@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by2qpmdskkvp6"]
+
+[ext_resource type="Script" path="res://scenes/components/core/cheekpoint/cheekpoint_manager.gd" id="1_abh12"]
+
+[node name="CheekpointManager" type="Node"]
+script = ExtResource("1_abh12")

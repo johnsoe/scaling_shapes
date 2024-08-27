@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://r4804veh7o4m"]
+[gd_scene load_steps=19 format=3 uid="uid://r4804veh7o4m"]
 
 [ext_resource type="Script" path="res://scenes/levels/l3_cave.gd" id="1_ubl5i"]
 [ext_resource type="PackedScene" uid="uid://16qibkk2s8nj" path="res://scenes/components/player/player_node.tscn" id="2_gxems"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://8ep2744llxxx" path="res://scenes/components/level_objects/cave/stone.tscn" id="9_udnu8"]
 [ext_resource type="PackedScene" uid="uid://ci7qb7t4ewfwe" path="res://scenes/components/level_objects/cave/stone_block.tscn" id="10_2ahja"]
 [ext_resource type="PackedScene" uid="uid://cxyifp4hqr5gd" path="res://scenes/components/level_objects/pulley/pulley.tscn" id="11_mqa5f"]
+[ext_resource type="PackedScene" uid="uid://by2qpmdskkvp6" path="res://scenes/components/core/cheekpoint/CheekpointManager.tscn" id="16_4jhpn"]
+[ext_resource type="PackedScene" uid="uid://d4n14h508n7q0" path="res://scenes/components/core/cheekpoint/cheekpoint.tscn" id="17_xsgcb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dms41"]
 atlas = ExtResource("7_peb1j")
@@ -66,6 +68,7 @@ position = Vector2(1121, -3005)
 
 [node name="Boulder" parent="Props" instance=ExtResource("5_y2mh2")]
 position = Vector2(1401, -2348)
+mass = 5.0
 
 [node name="StoneBlock4" parent="Props" instance=ExtResource("10_2ahja")]
 position = Vector2(95, -1849)
@@ -126,3 +129,17 @@ position = Vector2(8214, -2735)
 [node name="Crystal4" parent="Props" instance=ExtResource("7_os3w6")]
 position = Vector2(2160, -2935)
 rotation = 0.420624
+
+[node name="CheekpointManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("16_4jhpn")]
+level_name = "cave"
+player_node = NodePath("../PlayerNode")
+
+[node name="Cheekpoint" parent="CheekpointManager" instance=ExtResource("17_xsgcb")]
+position = Vector2(3606, -1658)
+cp_id = 1
+
+[node name="Cheekpoint2" parent="CheekpointManager" instance=ExtResource("17_xsgcb")]
+position = Vector2(4848, -3182)
+cp_id = 2
+
+[connection signal="level_complete" from="LevelExitDoor/LevelGoal" to="CheekpointManager" method="_on_level_goal_level_complete"]
