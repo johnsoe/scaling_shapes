@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://16qibkk2s8nj"]
+[gd_scene load_steps=13 format=3 uid="uid://16qibkk2s8nj"]
 
 [ext_resource type="Script" path="res://scenes/components/player/player_controller.gd" id="1_xum83"]
 [ext_resource type="Texture2D" uid="uid://cdmmv837tcgah" path="res://assets/sprites/playerSheet.png" id="2_e5m5k"]
@@ -25,6 +25,15 @@ animations = [{
 "name": &"run",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_rr55p"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjj6n"]
+gradient = SubResource("Gradient_rr55p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.0206422, 0.59633)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iayn0"]
 radius = 40.43
@@ -82,6 +91,12 @@ animation = &"run"
 autoplay = "run"
 frame = 1
 frame_progress = 0.518968
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-3, -9.72794)
+color = Color(0.909804, 0.905882, 0.313726, 1)
+texture = SubResource("GradientTexture2D_tjj6n")
+texture_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_iayn0")
